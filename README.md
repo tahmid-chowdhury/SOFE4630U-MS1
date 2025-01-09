@@ -44,7 +44,8 @@ The console will be opened at the bottom of the page as shown in the following f
 
 <img src="images/a7.jpg" alt="a7" width="750">
 
-# Create a Topic in Cloud Pub/Sub
+# Cloud Pub/Sub
+## Create a Topic in 
 1.	Search for .  
 
 <img src="images/b1.jpg" alt="b1" width="750">  
