@@ -3,14 +3,13 @@
 [https://github.com/GeorgeDaoud3/SOFE4630U-MS1](https://github.com/GeorgeDaoud3/SOFE4630U-MS1)
 ## Objectives
 1.	Understand the role of Data Ingestion System in Event Driven Architecture.
-2.	Get familiar with Kafka and its terminologies. 
+2.	Get familiar with Google Pub/Sub and its terminologies. 
 3.	Be able to create topics, producers, and consumers via GUI and code.
-4.	Get familiar with Google Pub/sub.
 
 ## What’s Kafka?
 1.	Watch the following video about [Event Driven Architecture (EDA)](https://www.youtube.com/watch?v=o2HJCGcYwoU)
-2.	The core component of an EDA is the Data Ingestion System also known as Publisher/subscriber (pub/sup). 
-Kafka is one of the most frequent used pub/sub. Watch the following video to get a good understanding of [Kafka and its terminologies](https://www.youtube.com/watch?v=Ch5VhJzaoaI).
+2.	The core component of an EDA is the Data Ingestion System also known as Publisher/Subscriber (Pub/Sup). 
+Kafka is one of the most frequent used pub/sub. Google Cloud PLatform (GCP) has it's own Pub/Sup tool. Watch the following video to get a good understanding of [Kafka and its terminologies](https://www.youtube.com/watch?v=Ch5VhJzaoaI).
 3.	You can set up Kafka cluster on a set of locally connected computers, 
 deploy it as a set of docker images over Kubernetes cluster, or use already exists cloud-native service. 
 In this section, we will use Kafka confluent Cloud as a cloud-native service. It’s a tool that can integrate with any cloud platform 
