@@ -4,14 +4,14 @@
 ## Objectives
 1.	Understand the role of Data Ingestion System in Event Driven Architecture.
 2.	Get familiar with Google Pub/Sub and its terminologies. 
-3.	Be able to create topics, producers, and consumers via GUI and code.
+3.	Be able to create topics, producers, and consumers via GUI.
+4.	Create producers, and consumers by a Python script.
 
-## What’s Kafka?
+## What’s Cloud Pub/Sub?
 1.	Watch the following video about [Event Driven Architecture (EDA)](https://www.youtube.com/watch?v=o2HJCGcYwoU)
-2.	The core component of an EDA is the Data Ingestion System also known as Publisher/Subscriber (Pub/Sup). 
-Kafka is one of the most frequent used pub/sub. Google Cloud PLatform (GCP) has it's own data ingestion service. called  Cloud Cloud Pub/Sub. Watch the following video to get a good understanding of [the Cloud Pub/Sub and its terminologies](https://www.youtube.com/watch?v=MjEam95VLiI).
+2.	The core component of an EDA is the Data Ingestion System also known as Publisher/Subscriber (Pub/Sup). Kafka is one of the most frequent used pub/sub. Google Cloud PLatform (GCP) has it's own data ingestion service. called  Cloud Cloud Pub/Sub. Watch the following video to get a good understanding of [the Cloud Pub/Sub and its terminologies](https://www.youtube.com/watch?v=MjEam95VLiI).
 
-We will start by creating a GCP account.  
+We will start by creating a GCP account. Then, we will learn how to configure topics in a Cloud Pub/sub. Publishing and consuming data through the topics.
 
 ## Creating GCP account
 1.	It’s recommended to create a new Gmail account, but you can use an already existing account.
@@ -45,30 +45,25 @@ The console will be opened at the bottom of the page as shown in the following f
 <img src="images/a7.jpg" alt="a7" width="750">
 
 # Cloud Pub/Sub
+
 ## 1. Create a Topic
-1.	Search for .  
+1.	Search for Pub/Sub.  
 
-<img src="images/b1.jpg" alt="b1" width="750">  
+<img src="images/pubsub_1.jpg" alt="Search for Pub/Sub" width="750">  
 
-2.	Sign in with the same Google account  
+2.	Click **CREATE TOPIC** button.
 
-<img src="images/b2.jpg" alt="b2" width="750">  
+<img src="images/pubsub_2.jpg" alt="Click 'CREAYE TOPIC' button" width="750">  
 
-3.	Enter your personal Information. Then, click **Submit**  
+3.	Set the topic ID to **testTopic**. Leave the default options. Then, click **CREATE**. Note, A default subscription will be automatically created.
 
-<img src="images/b3.jpg" alt="b3" width="350">  
+<img src="images/pubsub_3.jpg" alt="create a topic under the name testTopic" width="350">  
 
-4.	Finish the following survey and click **Continue**.  
-5.	To create your first Kafka cluster, choose the cluster name (e.g. **sofe4630u**) and Google Cloud as the service provider, Toronto as a **Region**. Then press **Continue**.   
+4.	The topic will be created. The default subscription is created under the name, **testTopic-sub**. 
+   
+<img src="images/pubsub_4.jpg" alt="The default subscription, testTopic-sub" width="470">  
 
-<img src="images/b4_v2.jpg" alt="b4" width="470">  
-
-6.	Don’t enter the payment info.   
-
-<img src="images/b5_v2.jpg" alt="b5" width="410">  
-
-
-## Create a topic, producer and consumer using the GUI
+## 2. Create an Account Service Key
 1.	Go to [the Confluent Kafka home page](https://confluent.cloud/home).
 2.	Click **Environments**.  
 3.	Select the default environment.  
