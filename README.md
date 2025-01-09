@@ -47,38 +47,47 @@ The console will be opened at the bottom of the page as shown in the following f
 # Cloud Pub/Sub
 
 ## 1. Create a Topic
-1.	Search for Pub/Sub.  
+1.	Search for **Pub/Sub**.  
 
-<img src="images/pubsub_1.jpg" alt="Search for Pub/Sub" width="750">  
+   <img src="images/pubsub_1.jpg" alt="Search for Pub/Sub" width="750">  
 
 2.	Click **CREATE TOPIC** button.
 
-<img src="images/pubsub_2.jpg" alt="Click 'CREAYE TOPIC' button" width="750">  
+   <img src="images/pubsub_2.jpg" alt="Click 'CREAYE TOPIC' button" width="750">  
 
 3.	Set the topic ID to **testTopic**. Leave the default options. Then, click **CREATE**. Note, A default subscription will be automatically created.
 
-<img src="images/pubsub_3.jpg" alt="create a topic under the name testTopic" width="350">  
+   <img src="images/pubsub_3.jpg" alt="create a topic under the name testTopic" width="350">  
 
 4.	The topic will be created. The default subscription is created under the name, **testTopic-sub**. 
    
-<img src="images/pubsub_4.jpg" alt="The default subscription, testTopic-sub" width="470">  
+   <img src="images/pubsub_4.jpg" alt="The default subscription, testTopic-sub" width="470">  
 
 ## 2. Create an Account Service Key
-1.	Go to [the Confluent Kafka home page](https://confluent.cloud/home).
-2.	Click **Environments**.  
-3.	Select the default environment.  
 
-   <img src="images/c1_v2.jpg" alt="c1" width="380">  
+A service account is a special kind of account typically used by an application or compute workload. In this subsection, a service account will be created with the Pub/Sub Publisher and Subscriber roles. A key for this service account is needed To grant access the Pub/Sub service from your machine.
 
-4. Keep the current free  configuration
+1.	Search for **Service accounts**.
 
-   <img src="images/c2_v2.jpg" alt="c2" width="650">
+   <img src="images/pubsub_5.jpg" alt="search for Service accounts" width="470">  
+
+2.	Click **CREATE SERVICE ACCOUNT** button.
+
+   <img src="images/pubsub_6.jpg" alt="click CREATE SERVICE ACCOUNT button" width="470">  
+
+3.	Set the service account name to **pubsub-system**. Then, click **CREATE AND CONTINUE** button.
+
+   <img src="images/pubsub_7.jpg" alt="Name the service account pubsub-system" width="470">  
+
+4. Add two roles to the service account, **Pub/Sub Publisher** and **Pub/Sub Subscriber**
+
+   <img src="images/pubsub_8.jpg" alt="Name the service account pubsub-system" width="470">  
    
-6.	Select the cluster according to its name.  
+5.	Don't grant users access. Just, Click Done
 
-   <img src="images/c2.jpg" alt="c3" width="750">  
+   <img src="images/pubsub_9.jpg" alt="Don't grant users access" width="470">  
 
-6.	Create a topic by selecting **topics**. Then click on **Create topic**.  
+6.	The 
 
    <img src="images/c3.jpg" alt="c4" width="350">  
 
