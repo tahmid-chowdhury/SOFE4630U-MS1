@@ -87,35 +87,18 @@ A service account is a special kind of account typically used by an application 
 
    <img src="images/pubsub_9.jpg" alt="Don't grant users access" width="470">  
 
-6.	The 
+6.	The service account will be created. To create and a download a key to use the serice account, Click on it.
 
-   <img src="images/c3.jpg" alt="c4" width="350">  
+   <img src="images/pubsub_10.jpg" alt="Don't grant users access" width="470">  
 
-7.	Choose the topic name as **testTopic** and you can leave the number of partitions to the default value of 6. Also, by clicking on **Show advanced settings**. Thus, you can change the **Cleanup policy**, **Retention time**, **Retention size**, and **maximum message size**. For now, you clean leave them with the default values. Finally, click **create with defaults** to create the topic.  
+7. Goto the **keys** tab, Choose **ADD KEY**, and Select **Create new key**.
 
-   <img src="images/c4.jpg" alt="c5" width="750">  
+  <img src="images/pubsub_11.jpg" alt="Don't grant users access" width="470">  
 
-8. the values and/or the keys of the messages can be configured to follow a certain schema. To make it simpler in this tutorial, no schemas will be created for the topic. 
+8. Choose **JSON** as the key type. Finally click "CREATE" to create and download it to your machine.
+  
+## 3. Create a Producer Using a Python Script
 
-   <img src="images/c4a_v2.jpg" alt="c5" width="650">  
-
-9.	In the **testTopic** page, create **messages** tap which allows you to produce and consume messages.  
-
-   <img src="images/c5_v2.jpg" alt="c6" width="1240">  
-
-10.	Click on **Actions** and then choose **Produce new message** as shown in the previous figure. A default value/key message will be generated for you. 
-The value is in a JSON format, but we can change it to a plain string. The key also is a number, but it can also be a string.  
-Change the **value** to **“Hello Kafka!!”** and the **key** to **1**. Then click **Produce**.  
-
-   <img src="images/c6_v2.jpg" alt="c7" width="575">  
-
-11.	It will be automatically consumed in the consumer region. The partition will be determined by hashing the key value.  
-
-   <img src="images/c7_v2.jpg" alt="c8" width="775">  
-
-12.	Produce more messages and check them using the consumer. 
-
-## Create a Topic, Producer and Consumer Using Python Code
 1.	To create a Kafka client for either a producer or a consumer using a language of your choice. Click **Cluster overview**. Then, at the **Set up client** area, click **Get started**. 
 
    <img src="images/d1_v2.jpg" alt="d1" width="1200">  
