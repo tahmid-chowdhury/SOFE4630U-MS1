@@ -10,6 +10,7 @@
 1.	Watch the following video about [Event Driven Architecture (EDA)](https://www.youtube.com/watch?v=o2HJCGcYwoU)
 2.	The core component of an EDA is the Data Ingestion System also known as Publisher/Subscriber (Pub/Sup). 
 Kafka is one of the most frequent used pub/sub. Google Cloud PLatform (GCP) has it's own data ingestion service. called  Cloud Cloud Pub/Sub. Watch the following video to get a good understanding of [the Cloud Pub/Sub and its terminologies](https://www.youtube.com/watch?v=MjEam95VLiI).
+
 We will start by creating a GCP account.  
 
 ## Creating GCP account
