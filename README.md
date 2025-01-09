@@ -9,11 +9,8 @@
 ## What’s Kafka?
 1.	Watch the following video about [Event Driven Architecture (EDA)](https://www.youtube.com/watch?v=o2HJCGcYwoU)
 2.	The core component of an EDA is the Data Ingestion System also known as Publisher/Subscriber (Pub/Sup). 
-Kafka is one of the most frequent used pub/sub. Google Cloud PLatform (GCP) has it's own Pub/Sup tool. Watch the following video to get a good understanding of [Kafka and its terminologies](https://www.youtube.com/watch?v=Ch5VhJzaoaI).
-3.	You can set up Kafka cluster on a set of locally connected computers, 
-deploy it as a set of docker images over Kubernetes cluster, or use already exists cloud-native service. 
-In this section, we will use Kafka confluent Cloud as a cloud-native service. It’s a tool that can integrate with any cloud platform 
-like Google Cloud Platform (GCP) to create a Kafka cluster. Thus, we will start by creating a GCP account.  
+Kafka is one of the most frequent used pub/sub. Google Cloud PLatform (GCP) has it's own data ingestion service. called  Cloud Cloud Pub/Sub. Watch the following video to get a good understanding of [the Cloud Pub/Sub and its terminologies](https://www.youtube.com/watch?v=MjEam95VLiI).
+We will start by creating a GCP account.  
 
 ## Creating GCP account
 1.	It’s recommended to create a new Gmail account, but you can use an already existing account.
