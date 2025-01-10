@@ -95,7 +95,7 @@ A service account is a special kind of account typically used by an application 
 
   <img src="images/pubsub_11.jpg" alt="Don't grant users access" width="470">  
 
-8. Choose **JSON** as the key type. Finally click "CREATE" to create and download it to your machine.
+8. Choose **JSON** as the key type. Finally click **CREATE** button to create and download the key to your machine.
   
 ## 3. Create a Producer Using a Python Script
 
