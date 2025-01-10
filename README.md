@@ -2,16 +2,17 @@
 ## Repository: 
 [https://github.com/GeorgeDaoud3/SOFE4630U-MS1](https://github.com/GeorgeDaoud3/SOFE4630U-MS1)
 ## Objectives
-1.	Understand the role of Data Ingestion System in Event Driven Architecture.
-2.	Get familiar with Google Pub/Sub and its terminologies. 
+1.	Understand the role of the Data Ingestion System in Event Driven Architecture.
+2.	Get familiar with Google Pub/Sub and its terminologies.
 3.	Be able to create topics, producers, and consumers via GUI.
-4.	Create producers, and consumers by a Python script.
+4.	Create producers and consumers with a Python script.
+
 
 ## What’s Cloud Pub/Sub?
 1.	Watch the following video about [Event Driven Architecture (EDA)](https://www.youtube.com/watch?v=o2HJCGcYwoU)
-2.	The core component of an EDA is the Data Ingestion System also known as Publisher/Subscriber (Pub/Sup). Kafka is one of the most frequent used pub/sub. Google Cloud PLatform (GCP) has it's own data ingestion service. called  Cloud Cloud Pub/Sub. Watch the following video to get a good understanding of [the Cloud Pub/Sub and its terminologies](https://www.youtube.com/watch?v=MjEam95VLiI).
+2.	The core component of an EDA is the Data Ingestion System, also known as Publisher/Subscriber (Pub/Sup). Kafka is one of the most frequently used pub/sub. Google Cloud Platform (GCP) has a data ingestion service called Cloud Pub/Sub. Watch the following video to understand [the Cloud Pub/Sub and its terminologies](https://www.youtube.com/watch?v=MjEam95VLiI).
 
-We will start by creating a GCP account. Then, we will learn how to configure topics in a Cloud Pub/sub. Publishing and consuming data through the topics.
+You will start by creating a GCP account. Then, you will learn how to configure topics in a Cloud Pub/Sub and Publish and consume data through the topics.
 
 ## Creating GCP account
 1.	It’s recommended to create a new Gmail account, but you can use an already existing account.
