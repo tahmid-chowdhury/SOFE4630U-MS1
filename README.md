@@ -125,19 +125,22 @@ The subsection will create a consumer that will create a subscriber that will co
 1. The same folder used in the previous subsection contains another Python script file, **consumer.py**.
    
       <img src="images/consumer_2.jpg" alt="Get the project ID from the GCP console" width="455">  
-3. Let's go through the code:
+2. Let's go through the code:
       * Lines 1-4: importing the needed libraries
       * Lines 8-9: search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. The **google.cloud** library will access this environment variable to grant access to the Pub/Sub.
-      * Lines 12-13: define the project and topic names. **Note**: you will set the project name in line 12 before running the script.
-      * Lines 16-18: create a publisher for the topic and set the full topic path.
-      * lines 21-36: a loop that will iterate 100 times to publish messages to the topic
-      * Lines 23-27: read the message and stop the loop for a blank input.
-      * line 29: convert the message to bytes. This is called serialization. It's needed before sending the message to the topic.
-      * Lines 32-33: send the serialized message into the topic.
-      * Line 36: ensure that the publishing has been completed successfully. It will throw an exception if a time-out occurs before receiving an acknowledgment.
-
-
-## Simulating a Real Meter.
+      * Lines 12-15: define the project and topic names as well as the subscription ID. **Note**: you will set the project name in line 12 before running the script.
+      * Lines 17-19: create a subscriber from the topic and set the full topic path.
+      * lines 33-40: subscribe to the topic and set a callback function to be called automatically for each message received. 
+      * Lines 24-31: The callback function that will be called automatically for any received message.
+      * line 26: convert the message from bytes to stringwhich is the format of the messages sent by the publisher. This is called deserialization.
+      * Lines 31: acknowledge The Pub/Sub that the message have been recieved and processed.
+3. Get the project ID from the GCP console and type it in the 12th line. You can change the topic name and the subscription ID in lines 13 and 14 if needed to match the open you have already created.
+4. The JSON file containing the key to the service account is already exist in the folder during the previous subsection. Thus, it will be accessed by the consumer as well because both the consumer and the producer are in the same folder.
+5. Run the **producer.py** script.
+6. Run the **consumer.py** script.
+7. Enter messages to be published by the producer and observe them received by the consumer.
+   
+## Simulating a Real Meter. 
 
 <img src="images/smartMeter.jpg" alt="smartMeter" width="650">  
 
