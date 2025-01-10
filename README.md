@@ -92,7 +92,7 @@ In this section, a publisher will be created using a Python script to publish me
 2.	Copy JSON file containing the key of the serive account obtained in the previous section to the same folder.   
 3.	The script containing the producer script is **producer.py** as shown in the following figure. It produces messages to the **testTopic** topic.
    
-      <img src="images/producer_1.jpg" alt="The content of producer.py" width="535">  
+      <img src="images/producer_1.jpg" alt="The content of producer.py" width="610">  
   
 4. Let's go throught the code:
    Lines 1-4 : importing the needed libraries
