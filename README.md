@@ -22,7 +22,7 @@ You will start by creating a GCP account. Then, you will learn how to configure 
 
 3.	Fill the account information and accept the terms of services  
 
-  <img src="images/a2.jpg" alt="Fill the account information" width="465">
+  <img src="images/a2.jpg" alt="Fill the account information" width="340">
 
 4.	In the next step, you will fill in your personal information and a credit card information. That information is to ensure that you are a real person. This will create a free account for 90 days and give you 300+ $ free credits. **No charges are made unless you upgrade to a paid Cloud Billing account**. Please read [the GCP billing verification](https://cloud.google.com/free/docs/free-cloud-features#billing_verification) for more information.  
 
