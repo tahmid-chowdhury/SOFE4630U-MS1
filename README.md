@@ -120,11 +120,11 @@ In this section, a publisher will be created using a Python script to publish me
 
 The subsection will create a consumer that will create a subscriber that will consume messages from the **testTopic** topic. The publisher created in the previous subsection will be used to produce messages that will be received by the consumer as shown in the following figure.
 
-<img src="images/consumer_1.jpg" alt="Get the project ID from the GCP console" width="810">  
+<img src="images/consumer_1.jpg" alt="Get the project ID from the GCP console" width="540">  
 
 1. The same folder used in the previous subsection contains another Python script file, **consumer.py**.
    
-      <img src="images/consumer_2.jpg" alt="Get the project ID from the GCP console" width="455">  
+      <img src="images/consumer_2.jpg" alt="Get the project ID from the GCP console" width="700">  
 2. Let's go through the code:
       * Lines 1-4: importing the needed libraries
       * Lines 8-9: search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. The **google.cloud** library will access this environment variable to grant access to the Pub/Sub.
