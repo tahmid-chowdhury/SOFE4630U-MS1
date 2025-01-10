@@ -124,7 +124,7 @@ The subsection will create a consumer that will create a subscriber that will co
 
 1. The same folder used in the previous subsection contains another Python script file, **consumer.py**.
    
-      <img src="images/consumer_2.jpg" alt="Get the project ID from the GCP console" width="700">  
+      <img src="images/consumer_2.jpg" alt="Get the project ID from the GCP console" width="620">  
 2. Let's go through the code:
       * Lines 1-4: importing the needed libraries
       * Lines 8-9: search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. The **google.cloud** library will access this environment variable to grant access to the Pub/Sub.
