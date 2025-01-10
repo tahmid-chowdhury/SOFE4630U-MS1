@@ -106,7 +106,7 @@ In this section, a publisher will be created using a Python script to publish me
 
 5. Get the project ID from the GCP console, as shown in the following figure, and type it in the 12th line. You can change the topic name in line 13 if needed to match the open you have already created.
    
-      <img src="images/producer_1.jpg" alt="Get the project ID from the GCP console" width="470">  
+      <img src="images/producer_2.jpg" alt="Get the project ID from the GCP console" width="455">  
 6. Install the **google.cloud** library by running the following command in the **Command Prompt** window.
       ```shell
       pip install google-cloud-pubsub
@@ -114,7 +114,7 @@ In this section, a publisher will be created using a Python script to publish me
 7.	Run the **producer.py** script. Enter some strings to be published.
 8.	Check that the messages have been sent to the topic by navigating to the **testTopic-sub** subscription. Select the **MESSAGES** tab and press the **pull** button
 
-      <img src="images/producer_1.jpg" alt="Get the project ID from the GCP console" width="470">  
+      <img src="images/producer_3.jpg" alt="Get the project ID from the GCP console" width="810">  
 
 ## 4. Create a Consumer (Subscriber) Using a Python Script
 
