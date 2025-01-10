@@ -124,13 +124,16 @@ In this section, a publisher will be created using a Python script to publish me
    
 6. Install the **google.cloud** library by running the following command in the **Command Prompt** window.
    ```shell
-   pip install google-cloud-pubsub  ##to install
+   pip install google-cloud-pubsub
    ```
-8.	Following the same technique change the topic name in line 8 to **“testTopic2”**. The second marked box in the following figure is a call back function that prints the output of each produce function that sends a message to the Kafka. The code in the third rectangle reads two strings and an integer that represents the key, value and the partition number from the user. Entering any integer less than -1 will stop the loop. The fourth box sends the message via produce function and invokes the call back function using the poll function. The last box flushes the producer internal buffer to ensure that all messages are already sent before ending the program. **Note:** a partition of value of -1 or when it's not included in the produce function, will make kafka decides automatically the paratition number accordinf to a built-in hashing function.  
+7.	Run the **producer.py** script. Enter some strings to be published.
+8.	Check that the messages have been sentto the topic by navigate to the **testTopic-sub** subscription. Select the **MESSAGES** tab and press **pull** button. 
+   
+   <img src="images/producer_2.jpg" alt="Get the project ID from the GCP console" width="470">  
 
-<img src="images/d7.jpg" alt="d7" width="750">  
+## 4. Create a Consumer (Subscriber) Using a Python Script
 
-10.	The final script is **consumer.py**. As usual, change the topic name in line 6 to “testTopic2”. The group id is given in the 11th line. Consumers of the same group id will cooperate to read messages from the topic. The group id can be any string. The third rectangle marked in the following figure creates a consumer and subscribes it to the topic. Note, the consumer can subscribe to a set of topics. The poll function at the 23rd line reads messages from the topic. The fifth rectangle marks the code that prints the status and output of the consume function. The last box will end the consumer once **Ctrl-C** is pressed by the user that will trigger the **KeyboardInterrupt**.  
+11.	The final script is **consumer.py**. As usual, change the topic name in line 6 to “testTopic2”. The group id is given in the 11th line. Consumers of the same group id will cooperate to read messages from the topic. The group id can be any string. The third rectangle marked in the following figure creates a consumer and subscribes it to the topic. Note, the consumer can subscribe to a set of topics. The poll function at the 23rd line reads messages from the topic. The fifth rectangle marks the code that prints the status and output of the consume function. The last box will end the consumer once **Ctrl-C** is pressed by the user that will trigger the **KeyboardInterrupt**.  
 
 <img src="images/d8.jpg" alt="d8" width="500">  
 
