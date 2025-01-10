@@ -15,31 +15,29 @@
 You will start by creating a GCP account. Then, you will learn how to configure topics in a Cloud Pub/Sub and Publish and consume data through the topics.
 
 ## Creating GCP account
-1.	Creating a new Gmail account is recommended, but you can use an existing one if it still allows you a free trial.
-2.	Go to the [GCP official site](https://cloud.google.com/gcp). Be sure that you are using the correct account. Then, click on **Get Started for Free** button
-      <img src="images/a1.jpg" alt="Get Started with GCP for Free" width="540">
-3.	Fill the account information and accept the terms of services.
-      <img src="images/a2.jpg" alt="Fill the account information" width="300">
-4.	In the next step, you will fill in your personal information and a credit card information. That information is to ensure that you are a real person. This will create a free account for 90 days and give you 300+ $ free credits. **No charges are made unless you upgrade to a paid Cloud Billing account**. Please read [the GCP billing verification](https://cloud.google.com/free/docs/free-cloud-features#billing_verification) for more information.
-      <img src="images/a3.jpg" alt="fill in your personal information" width="550">
-5.	Fill in the final survey. Then, click **Done**. You can safely skip any given offers.  
-
-  ![a4](images/a4.jpg)  
-
-6.	Get yourself familiar with
+1. Creating a new Gmail account is recommended, but you can use an existing one if it still allows you a free trial.
+2. Go to the [GCP official site](https://cloud.google.com/gcp). Be sure that you are using the correct account. Then, click on **Get Started for Free** button
+   <img src="images/a1.jpg" alt="Get Started with GCP for Free" width="540">
+4. Fill the account information and accept the terms of services.
+   <img src="images/a2.jpg" alt="Fill the account information" width="300">
+5. In the next step, you will fill in your personal information and a credit card information. That information is to ensure that you are a real person. This will create a free account for 90 days and give you 300+ $ free credits. **No charges are made unless you upgrade to a paid Cloud Billing account**. Please read [the GCP billing verification](https://cloud.google.com/free/docs/free-cloud-features#billing_verification) for more information.
+   <img src="images/a3.jpg" alt="fill in your personal information" width="550">
+7. Fill in the final survey. Then, click **Done**. You can safely skip any given offers.  
+   ![a4](images/a4.jpg)  
+6. Get yourself familiar with
 * Dashboard: allows you to search and select available cloud services
 * project(s): a project usually named **My First Project** will be created, However, you can create, edit, and delete projects.
 * The console: By clicking the console icon, the console will be opened to you. The console is a Linux terminal that can be used to configure the cloud. Any commands affecting the console's local OS will be temporary and lost whenever the session is closed, while any change made to cloud services will be permanent.
   
-  <img src="images/a5.jpg" alt="a5" width="750">
+   <img src="images/a5.jpg" alt="a5" width="750">
 
-  The console will be opened at the bottom of the page as shown in the following figure and from it we can exchange files and folders with your local computer by downloading or uploading them. You can also click **Open Editor** button to open a text editor.
+   The console will be opened at the bottom of the page as shown in the following figure and from it we can exchange files and folders with your local computer by downloading or uploading them. You can also click **Open Editor** button to open a text editor.
     
-  <img src="images/a6.jpg" alt="a6" width="750">
+   <img src="images/a6.jpg" alt="a6" width="750">
 
 * Editor: It’s a text editor that allows you to edit plain text file as shown in the following figure. You can switch back to the console by clicking **Open Terminal** button.
   
-  <img src="images/a7.jpg" alt="a7" width="750">
+   <img src="images/a7.jpg" alt="a7" width="750">
 
 # Cloud Pub/Sub
 
