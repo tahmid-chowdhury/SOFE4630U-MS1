@@ -73,22 +73,17 @@ In this section, you will learn to create topics in Pub/Sun. Also, you will writ
 A service account is a special kind of account typically used by an application or compute workload. In this subsection, a service account will be created with the Pub/Sub Publisher and Subscriber roles. A key for this service account is needed To grant access the Pub/Sub service from your machine.
 
 1.	Search for **Service accounts**.
-
    <img src="images/pubsub_5.jpg" alt="search for Service accounts" width="470">  
-
 2.	Click **CREATE SERVICE ACCOUNT** button.
-
    <img src="images/pubsub_6.jpg" alt="click CREATE SERVICE ACCOUNT button" width="470">  
-
-3.	Set the service account name to **pubsub-system**. Then, click **CREATE AND CONTINUE** button.
-
+3. Set the service account name to **pubsub-system**. Then, click **CREATE AND CONTINUE** button.
    <img src="images/pubsub_7.jpg" alt="Name the service account pubsub-system" width="470">  
 
-4. Add two roles to the service account, **Pub/Sub Publisher** and **Pub/Sub Subscriber**
+5. Add two roles to the service account, **Pub/Sub Publisher** and **Pub/Sub Subscriber**
 
    <img src="images/pubsub_8.jpg" alt="Name the service account pubsub-system" width="470">  
    
-5.	Don't grant users access. Just, Click Done
+6.	Don't grant users access. Just, Click Done
 
    <img src="images/pubsub_9.jpg" alt="Don't grant users access" width="470">  
 
