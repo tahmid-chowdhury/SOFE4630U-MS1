@@ -15,22 +15,22 @@
 You will start by creating a GCP account. Then, you will learn how to configure topics in a Cloud Pub/Sub and Publish and consume data through the topics.
 
 ## Creating GCP account
-1.	It’s recommended to create a new Gmail account, but you can use an already existing account.
-2.	Go to [GCP official site](https://cloud.google.com/gcp). Be sure that you are using the correct account. Then, click on **Get Started for free** button  
-
-![a1](images/a1.jpg)  
+1.	Creating a new Gmail account is recommended, but you can use an existing one if it still allows you a free trial.
+2.	Go to the [GCP official site](https://cloud.google.com/gcp). Be sure that you are using the correct account. Then, click on **Get Started for Free** button
+   
+   ![a1](images/a1.jpg)  
 
 3.	Fill the account information and accept the terms of services  
 
-![a2](images/a2.jpg)  
+  ![a2](images/a2.jpg)  
 
 4.	In the next step, you will fill in your personal information and a credit card information. That information is to ensure that you are a real person. This will create a free account for 90 days and give you 300+ $ free credits. **No charges are made unless you upgrade to a paid Cloud Billing account**. Please read [the GCP billing verification](https://cloud.google.com/free/docs/free-cloud-features#billing_verification) for more information.  
 
-![a3](images/a3.jpg)  
+  ![a3](images/a3.jpg)  
 
 5.	Fill in the final survey. Then, click **Done**. You can safely skip any given offers.  
 
-![a4](images/a4.jpg)  
+  ![a4](images/a4.jpg)  
 
 6.	Get yourself familiar with
 * Dashboard: allows you to search and select available cloud services
