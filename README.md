@@ -98,7 +98,7 @@ A service account is a special kind of account typically used by an application 
 
 7. Goto the **keys** tab, Choose **ADD KEY**, and Select **Create new key**.
 
-  <img src="images/pubsub_11.jpg" alt="Don't grant users access" width="470">  
+   <img src="images/pubsub_11.jpg" alt="Don't grant users access" width="470">  
 
 8. Choose **JSON** as the key type. Finally click **CREATE** button to create and download the key to your machine.
   
