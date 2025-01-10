@@ -48,18 +48,18 @@ In this section, you will learn to create topics in Pub/Sun. Also, you will writ
 1.	Search for **Pub/Sub**.  
 
       <img src="images/pubsub_1.jpg" alt="Search for Pub/Sub" width="965">  
-2.	Click **CREATE TOPIC** button.
+2.	Click the **CREATE TOPIC** button.
 
       <img src="images/pubsub_2.jpg" alt="Click 'CREAYE TOPIC' button" width="854">  
-3.	Set the topic ID to **testTopic**. Leave the default options. Then, click **CREATE**. Note, A default subscription will be automatically created.
+3.	Set the topic ID to **testTopic**. Leave the default options. Then, click **CREATE**. **Note**: A default subscription will be automatically created.
 
       <img src="images/pubsub_3.jpg" alt="create a topic under the name testTopic" width="560">  
-4.	The topic will be created. The default subscription is created under the name, **testTopic-sub**. 
+4.	The topic will be created. The default subscription is created under the name **testTopic-sub**. 
    
       <img src="images/pubsub_4.jpg" alt="The default subscription, testTopic-sub" width="830">  
 ## 2. Create an Account Service Key
 
-A service account is a special kind of account typically used by an application or compute workload. In this subsection, a service account will be created with the Pub/Sub Publisher and Subscriber roles. A key for this service account is needed To grant access the Pub/Sub service from your machine.
+A service account is a special account typically used by an application. This subsection will create a service account with the Pub/Sub Publisher and Subscriber roles. A key for this service account is needed to grant access to the Pub/Sub service from your machine.
 
 1.	Search for **Service accounts**.
    
@@ -67,55 +67,53 @@ A service account is a special kind of account typically used by an application 
 2.	Click **CREATE SERVICE ACCOUNT** button.
 
       <img src="images/pubsub_6.jpg" alt="click CREATE SERVICE ACCOUNT button" width="830">  
-3. Set the service account name to **pubsub-system**. Then, click **CREATE AND CONTINUE** button.
+3. Set the service account name to **pubsub-system**. Then, click the **CREATE AND CONTINUE** button.
    
       <img src="images/pubsub_7.jpg" alt="Name the service account pubsub-system" width="560">  
 4. Add two roles to the service account, **Pub/Sub Publisher** and **Pub/Sub Subscriber**
 
       <img src="images/pubsub_8.jpg" alt="Name the service account pubsub-system" width="375">    
-5.	Don't grant users access. Just, Click Done
+5.	Don't grant users’ access. Leave the textboxes blank and click Done.
 
       <img src="images/pubsub_9.jpg" alt="Don't grant users access" width="380">  
-6.	The service account will be created. To create and a download a key to use the serice account, Click on it.
+6.	The service account will be created. Click on it to create and download a key to use the service account.
 
       <img src="images/pubsub_10.jpg" alt="Don't grant users access" width="1100">  
-7. Goto the **keys** tab, Choose **ADD KEY**, and Select **Create new key**.
+7. Go to the **keys** tab, Choose **ADD KEY**, and Select **Create new key**.
 
       <img src="images/pubsub_11.jpg" alt="Don't grant users access" width="610">  
-8. Choose **JSON** as the key type. Finally click **CREATE** button to create and download the key to your machine.
+8. Choose **JSON** as the key type. Finally, click the **CREATE** button to create and download the key to your machine.
   
 ## 3. Create a Producer (Publisher) Using a Python Script
 
-In this section, a publisher will be created using a Python script to publish messages through the pre-created topic. This code should run on your local machine but you can run it on the cloud console which is not preferable. 
+In this section, a publisher will be created using a Python script to publish messages through the pre-created topic. This code should run on your local machine, but you can run it on the cloud console, which is not preferable. 
 
-1.	Download the files from folder, **v1**, from the GitHub repository to a certain folder in your computer.  
-2.	Copy JSON file containing the key of the serive account obtained in the previous section to the same folder.   
-3.	The script containing the producer script is **producer.py** as shown in the following figure. It produces messages to the **testTopic** topic.
+1.	Download the files from the folder **v1** from the GitHub repository to a specific folder on your computer.  
+2.	Copy the JSON file containing the key to the service account obtained in the previous section to the same folder.
+3.	The script containing the producer script is **producer.py**, as shown in the following figure. The publisher produces messages to the **testTopic** topic.
    
-      <img src="images/producer_1.jpg" alt="The content of producer.py" width="685">  
-  
-4. Let's go throught the code:
-      * Lines 1-4 : importing the needed libraries
-      * Lines 8-9 : search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. This enviroment variable will be accessed by the **google.cloud** library to grant access to the Pub/Sub.
-      * Lines 12-13: define the project name and the topic name. Note you have to set the project name in line 12 before running the script.
-      * Lines 16-18: create a publisher to the topic and set the full topic path.
+      <img src="images/producer_1.jpg" alt="The content of producer.py" width="685">   
+4. Let's go through the code:
+      * Lines 1-4: importing the needed libraries
+      * Lines 8-9: search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. The **google.cloud** library will access this environment variable to grant access to the Pub/Sub.
+      * Lines 12-13: define the project and topic names. **Note**: you will set the project name in line 12 before running the script.
+      * Lines 16-18: create a publisher for the topic and set the full topic path.
       * lines 21-36: a loop that will iterate 100 times to publish messages to the topic
-      * Lines 23-27: get a message from the user and stop the loop for a blank input.
-      * line 29    : convert the message to bytes. This is called serialization and it's needed before sending the message into the topic.
+      * Lines 23-27: read the message and stop the loop for a blank input.
+      * line 29: convert the message to bytes. This is called serialization. It's needed before sending the message to the topic.
       * Lines 32-33: send the serialized message into the topic.
-      * Line 36    : ensure that the publishing has been completed successfully. It will throw an exception if a time-out occurs before an acknowledgment has been received.
+      * Line 36: ensure that the publishing has been completed successfully. It will throw an exception if a time-out occurs before receiving an acknowledgment.
 
-5. Get the project ID from the GCP console as shown  in the following figure and type it in the 12th line. you can change the topic name in line 13 if needed to match the open you already created in the before.
+5. Get the project ID from the GCP console, as shown in the following figure, and type it in the 12th line. You can change the topic name in line 13 if needed to match the open you have already created.
    
       <img src="images/producer_1.jpg" alt="Get the project ID from the GCP console" width="470">  
-   
 6. Install the **google.cloud** library by running the following command in the **Command Prompt** window.
-   ```shell
-   pip install google-cloud-pubsub
-   ```
+      ```shell
+      pip install google-cloud-pubsub
+      ```
 7.	Run the **producer.py** script. Enter some strings to be published.
-8.	Check that the messages have been sentto the topic by navigate to the **testTopic-sub** subscription. Select the **MESSAGES** tab and press **pull** button. 
-   
+8.	Check that the messages have been sent to the topic by navigating to the **testTopic-sub** subscription. Select the **MESSAGES** tab and press the **pull** button
+
       <img src="images/producer_1.jpg" alt="Get the project ID from the GCP console" width="470">  
 
 ## 4. Create a Consumer (Subscriber) Using a Python Script
