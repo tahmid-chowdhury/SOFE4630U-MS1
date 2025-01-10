@@ -47,16 +47,16 @@ In this section, you will learn to create topics in Pub/Sun. Also, you will writ
 ## 1. Create a Topic
 1.	Search for **Pub/Sub**.  
 
-   <img src="images/pubsub_1.jpg" alt="Search for Pub/Sub" width="750">  
+      <img src="images/pubsub_1.jpg" alt="Search for Pub/Sub" width="750">  
 2.	Click **CREATE TOPIC** button.
 
-   <img src="images/pubsub_2.jpg" alt="Click 'CREAYE TOPIC' button" width="750">  
+      <img src="images/pubsub_2.jpg" alt="Click 'CREAYE TOPIC' button" width="750">  
 3.	Set the topic ID to **testTopic**. Leave the default options. Then, click **CREATE**. Note, A default subscription will be automatically created.
 
-   <img src="images/pubsub_3.jpg" alt="create a topic under the name testTopic" width="350">  
+      <img src="images/pubsub_3.jpg" alt="create a topic under the name testTopic" width="350">  
 4.	The topic will be created. The default subscription is created under the name, **testTopic-sub**. 
    
-   <img src="images/pubsub_4.jpg" alt="The default subscription, testTopic-sub" width="470">  
+      <img src="images/pubsub_4.jpg" alt="The default subscription, testTopic-sub" width="470">  
 ## 2. Create an Account Service Key
 
 A service account is a special kind of account typically used by an application or compute workload. In this subsection, a service account will be created with the Pub/Sub Publisher and Subscriber roles. A key for this service account is needed To grant access the Pub/Sub service from your machine.
