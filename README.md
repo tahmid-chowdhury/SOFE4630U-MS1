@@ -47,41 +47,41 @@ In this section, you will learn to create topics in Pub/Sun. Also, you will writ
 ## 1. Create a Topic
 1.	Search for **Pub/Sub**.  
 
-      <img src="images/pubsub_1.jpg" alt="Search for Pub/Sub" width="750">  
+      <img src="images/pubsub_1.jpg" alt="Search for Pub/Sub" width="965">  
 2.	Click **CREATE TOPIC** button.
 
-      <img src="images/pubsub_2.jpg" alt="Click 'CREAYE TOPIC' button" width="750">  
+      <img src="images/pubsub_2.jpg" alt="Click 'CREAYE TOPIC' button" width="854">  
 3.	Set the topic ID to **testTopic**. Leave the default options. Then, click **CREATE**. Note, A default subscription will be automatically created.
 
-      <img src="images/pubsub_3.jpg" alt="create a topic under the name testTopic" width="350">  
+      <img src="images/pubsub_3.jpg" alt="create a topic under the name testTopic" width="560">  
 4.	The topic will be created. The default subscription is created under the name, **testTopic-sub**. 
    
-      <img src="images/pubsub_4.jpg" alt="The default subscription, testTopic-sub" width="470">  
+      <img src="images/pubsub_4.jpg" alt="The default subscription, testTopic-sub" width="830">  
 ## 2. Create an Account Service Key
 
 A service account is a special kind of account typically used by an application or compute workload. In this subsection, a service account will be created with the Pub/Sub Publisher and Subscriber roles. A key for this service account is needed To grant access the Pub/Sub service from your machine.
 
 1.	Search for **Service accounts**.
    
-   <img src="images/pubsub_5.jpg" alt="search for Service accounts" width="470">  
+      <img src="images/pubsub_5.jpg" alt="search for Service accounts" width="955">  
 2.	Click **CREATE SERVICE ACCOUNT** button.
 
-   <img src="images/pubsub_6.jpg" alt="click CREATE SERVICE ACCOUNT button" width="470">  
+      <img src="images/pubsub_6.jpg" alt="click CREATE SERVICE ACCOUNT button" width="830">  
 3. Set the service account name to **pubsub-system**. Then, click **CREATE AND CONTINUE** button.
    
-   <img src="images/pubsub_7.jpg" alt="Name the service account pubsub-system" width="470">  
+      <img src="images/pubsub_7.jpg" alt="Name the service account pubsub-system" width="560">  
 4. Add two roles to the service account, **Pub/Sub Publisher** and **Pub/Sub Subscriber**
 
-   <img src="images/pubsub_8.jpg" alt="Name the service account pubsub-system" width="470">    
+      <img src="images/pubsub_8.jpg" alt="Name the service account pubsub-system" width="375">    
 5.	Don't grant users access. Just, Click Done
 
-   <img src="images/pubsub_9.jpg" alt="Don't grant users access" width="470">  
+      <img src="images/pubsub_9.jpg" alt="Don't grant users access" width="380">  
 6.	The service account will be created. To create and a download a key to use the serice account, Click on it.
 
-   <img src="images/pubsub_10.jpg" alt="Don't grant users access" width="470">  
+      <img src="images/pubsub_10.jpg" alt="Don't grant users access" width="1100">  
 7. Goto the **keys** tab, Choose **ADD KEY**, and Select **Create new key**.
 
-   <img src="images/pubsub_11.jpg" alt="Don't grant users access" width="470">  
+      <img src="images/pubsub_11.jpg" alt="Don't grant users access" width="610">  
 8. Choose **JSON** as the key type. Finally click **CREATE** button to create and download the key to your machine.
   
 ## 3. Create a Producer (Publisher) Using a Python Script
