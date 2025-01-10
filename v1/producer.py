@@ -21,16 +21,16 @@ print(f"Published messages with ordering keys to {topic_path}.")
 for n in range(100):
     # get the value from the user
     print('Enter a value (String):',end='')
-    record_value = input()
+    message = input()
     # stop if empty value is entered
-    if record_value=='':
+    if message=='':
         break;
     # convert the string to bytes (serialization)
-    record_value=str(record_value).encode('utf-8')
+    message=str(message).encode('utf-8')
     
     # send the value
-    print("Producing a record: {}".format(record_value))    
-    future = publisher.publish(topic_path, record_value);
+    print("Producing a record: {}".format(message))    
+    future = publisher.publish(topic_path, message);
     
     #ensure that the publishing has been completed successfully
     future.result()
