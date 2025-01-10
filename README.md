@@ -118,7 +118,7 @@ In this section, a publisher will be created using a Python script to publish me
 
 ## 4. Create a Consumer (Subscriber) Using a Python Script
 
-The subsection will create a consumer that will create a subscriber that will consume messages from the **testTopic** topic. The publisher created in the previous subsection will be used to produce messages that will be received by the consumer as shown in the following figure.
+The subsection will create a consumer that will create a subscriber to consume messages from the **testTopic** topic. The publisher created in the previous subsection will be used to produce messages that will be received by the consumer as shown in the following figure.
 
 <img src="images/consumer_1.jpg" alt="Get the project ID from the GCP console" width="540">  
 
