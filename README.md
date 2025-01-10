@@ -118,9 +118,24 @@ In this section, a publisher will be created using a Python script to publish me
 
 ## 4. Create a Consumer (Subscriber) Using a Python Script
 
-11.	The final script is **consumer.py**. As usual, change the topic name in line 6 to “testTopic2”. The group id is given in the 11th line. Consumers of the same group id will cooperate to read messages from the topic. The group id can be any string. The third rectangle marked in the following figure creates a consumer and subscribes it to the topic. Note, the consumer can subscribe to a set of topics. The poll function at the 23rd line reads messages from the topic. The fifth rectangle marks the code that prints the status and output of the consume function. The last box will end the consumer once **Ctrl-C** is pressed by the user that will trigger the **KeyboardInterrupt**.  
+The subsection will create a consumer that will create a subscriber that will consume messages from the **testTopic** topic. The publisher created in the previous subsection will be used to produce messages that will be received by the consumer as shown in the following figure.
 
-<img src="images/d8.jpg" alt="d8" width="500">  
+<img src="images/consumer_1.jpg" alt="Get the project ID from the GCP console" width="810">  
+
+1. The same folder used in the previous subsection contains another Python script file, **consumer.py**.
+   
+      <img src="images/consumer_2.jpg" alt="Get the project ID from the GCP console" width="455">  
+3. Let's go through the code:
+      * Lines 1-4: importing the needed libraries
+      * Lines 8-9: search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. The **google.cloud** library will access this environment variable to grant access to the Pub/Sub.
+      * Lines 12-13: define the project and topic names. **Note**: you will set the project name in line 12 before running the script.
+      * Lines 16-18: create a publisher for the topic and set the full topic path.
+      * lines 21-36: a loop that will iterate 100 times to publish messages to the topic
+      * Lines 23-27: read the message and stop the loop for a blank input.
+      * line 29: convert the message to bytes. This is called serialization. It's needed before sending the message to the topic.
+      * Lines 32-33: send the serialized message into the topic.
+      * Line 36: ensure that the publishing has been completed successfully. It will throw an exception if a time-out occurs before receiving an acknowledgment.
+
 
 ## Simulating a Real Meter.
 
