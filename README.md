@@ -92,7 +92,7 @@ In this section, a publisher will be created using a Python script to publish me
 2.	Copy JSON file containing the key of the serive account obtained in the previous section to the same folder.   
 3.	The script containing the producer script is **producer.py** as shown in the following figure. It produces messages to the **testTopic** topic.
    
-  <img src="images/producer_1.jpg" alt="The content of producer.py" width="470">  
+      <img src="images/producer_1.jpg" alt="The content of producer.py" width="470">  
   
 4. Let's go throught the code:
    Lines 1-4 : importing the needed libraries
@@ -107,7 +107,7 @@ In this section, a publisher will be created using a Python script to publish me
 
 5. Get the project ID from the GCP console as shown  in the following figure and type it in the 12th line. you can change the topic name in line 13 if needed to match the open you already created in the before.
    
-   <img src="images/producer_2.jpg" alt="Get the project ID from the GCP console" width="470">  
+      <img src="images/producer_1.jpg" alt="Get the project ID from the GCP console" width="470">  
    
 6. Install the **google.cloud** library by running the following command in the **Command Prompt** window.
    ```shell
@@ -116,7 +116,7 @@ In this section, a publisher will be created using a Python script to publish me
 7.	Run the **producer.py** script. Enter some strings to be published.
 8.	Check that the messages have been sentto the topic by navigate to the **testTopic-sub** subscription. Select the **MESSAGES** tab and press **pull** button. 
    
-   <img src="images/producer_2.jpg" alt="Get the project ID from the GCP console" width="470">  
+      <img src="images/producer_1.jpg" alt="Get the project ID from the GCP console" width="470">  
 
 ## 4. Create a Consumer (Subscriber) Using a Python Script
 
