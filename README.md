@@ -123,7 +123,7 @@ In this section, a publisher will be created using a Python script to publish me
    <img src="images/producer_2.jpg" alt="Get the project ID from the GCP console" width="470">  
    
 6. Install the **google.cloud** library by running the following command in the **Command Prompt** window.
-   ```Python
+   ```console
    pip install google-cloud-pubsub  ##to install
    ```
 8.	Following the same technique change the topic name in line 8 to **“testTopic2”**. The second marked box in the following figure is a call back function that prints the output of each produce function that sends a message to the Kafka. The code in the third rectangle reads two strings and an integer that represents the key, value and the partition number from the user. Entering any integer less than -1 will stop the loop. The fourth box sends the message via produce function and invokes the call back function using the poll function. The last box flushes the producer internal buffer to ensure that all messages are already sent before ending the program. **Note:** a partition of value of -1 or when it's not included in the produce function, will make kafka decides automatically the paratition number accordinf to a built-in hashing function.  
