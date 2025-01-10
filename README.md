@@ -95,15 +95,15 @@ In this section, a publisher will be created using a Python script to publish me
       <img src="images/producer_1.jpg" alt="The content of producer.py" width="685">  
   
 4. Let's go throught the code:
-   Lines 1-4 : importing the needed libraries
-   Lines 8-9 : search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. This enviroment variable will be accessed by the **google.cloud** library to grant access to the Pub/Sub.
-   Lines 12-13: define the project name and the topic name. Note you have to set the project name in line 12 before running the script.
-   Lines 16-18: create a publisher to the topic and set the full topic path.
-   lines 21-36: a loop that will iterate 100 times to publish messages to the topic
-   Lines 23-27: get a message from the user and stop the loop for a blank input.
-   line 29    : convert the message to bytes. This is called serialization and it's needed before sending the message into the topic.
-   Lines 32-33: send the serialized message into the topic.
-   Line 36    : ensure that the publishing has been completed successfully. It will throw an exception if a time-out occurs before an acknowledgment has been received.
+      Lines 1-4 : importing the needed libraries
+      Lines 8-9 : search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. This enviroment variable will be accessed by the **google.cloud** library to grant access to the Pub/Sub.
+      Lines 12-13: define the project name and the topic name. Note you have to set the project name in line 12 before running the script.
+      Lines 16-18: create a publisher to the topic and set the full topic path.
+      lines 21-36: a loop that will iterate 100 times to publish messages to the topic
+      Lines 23-27: get a message from the user and stop the loop for a blank input.
+      line 29    : convert the message to bytes. This is called serialization and it's needed before sending the message into the topic.
+      Lines 32-33: send the serialized message into the topic.
+      Line 36    : ensure that the publishing has been completed successfully. It will throw an exception if a time-out occurs before an acknowledgment has been received.
 
 5. Get the project ID from the GCP console as shown  in the following figure and type it in the 12th line. you can change the topic name in line 13 if needed to match the open you already created in the before.
    
