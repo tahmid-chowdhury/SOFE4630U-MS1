@@ -49,6 +49,8 @@ You will start by creating a GCP account. Then, you will learn how to configure 
 
 # Cloud Pub/Sub
 
+In this section, you will learn to create topics in Pub/Sun. Also, you will write and run Python Script to publish into and consume messages from the topic.
+
 ## 1. Create a Topic
 1.	Search for **Pub/Sub**.  
 
