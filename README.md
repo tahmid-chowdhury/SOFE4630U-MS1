@@ -97,7 +97,9 @@ A service account is a special kind of account typically used by an application 
 
 8. Choose **JSON** as the key type. Finally click **CREATE** button to create and download the key to your machine.
   
-## 3. Create a Producer Using a Python Script
+## 3. Create a Producer (Publisher) Using a Python Script
+
+In this section, a publisher will be created using a Python script to publish messages through the pre-created topic. This code should run on your local machine but you can run it on the cloud console which is not preferable. 
 
 1.	Download the files from folder, **v1**, from the GitHub repository to a certain folder in your computer.  
 2.	Copy JSON file containing the key of the serive account obtained in the previous section to the same folder.   
@@ -105,7 +107,26 @@ A service account is a special kind of account typically used by an application 
    
   <img src="images/producer_1.jpg" alt="The content of producer.py" width="470">  
   
-5.	Following the same technique change the topic name in line 8 to **“testTopic2”**. The second marked box in the following figure is a call back function that prints the output of each produce function that sends a message to the Kafka. The code in the third rectangle reads two strings and an integer that represents the key, value and the partition number from the user. Entering any integer less than -1 will stop the loop. The fourth box sends the message via produce function and invokes the call back function using the poll function. The last box flushes the producer internal buffer to ensure that all messages are already sent before ending the program. **Note:** a partition of value of -1 or when it's not included in the produce function, will make kafka decides automatically the paratition number accordinf to a built-in hashing function.  
+4. Let's go throught the code:
+   Lines 1-4 : importing the needed libraries
+   Lines 8-9 : search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. This enviroment variable will be accessed by the **google.cloud** library to grant access to the Pub/Sub.
+   Lines 12-13: define the project name and the topic name. Note you have to set the project name in line 12 before running the script.
+   Lines 16-18: create a publisher to the topic and set the full topic path.
+   lines 21-36: a loop that will iterate 100 times to publish messages to the topic
+   Lines 23-27: get a message from the user and stop the loop for a blank input.
+   line 29    : convert the message to bytes. This is called serialization and it's needed before sending the message into the topic.
+   Lines 32-33: send the serialized message into the topic.
+   Line 36    : ensure that the publishing has been completed successfully. It will throw an exception if a time-out occurs before an acknowledgment has been received.
+
+5. Get the project ID from the GCP console as shown  in the following figure and type it in the 12th line. you can change the topic name in line 13 if needed to match the open you already created in the before.
+   
+   <img src="images/producer_2.jpg" alt="Get the project ID from the GCP console" width="470">  
+   
+6. Install the **google.cloud** library by running the following command in the **Command Prompt** window.
+   ''' cmd
+   pip install google-cloud-pubsub  ##to install
+   '''
+8.	Following the same technique change the topic name in line 8 to **“testTopic2”**. The second marked box in the following figure is a call back function that prints the output of each produce function that sends a message to the Kafka. The code in the third rectangle reads two strings and an integer that represents the key, value and the partition number from the user. Entering any integer less than -1 will stop the loop. The fourth box sends the message via produce function and invokes the call back function using the poll function. The last box flushes the producer internal buffer to ensure that all messages are already sent before ending the program. **Note:** a partition of value of -1 or when it's not included in the produce function, will make kafka decides automatically the paratition number accordinf to a built-in hashing function.  
 
 <img src="images/d7.jpg" alt="d7" width="750">  
 
