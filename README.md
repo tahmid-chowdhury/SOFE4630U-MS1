@@ -1,4 +1,4 @@
-# Milestone 1: Data Ingestion System (Cloud Pub/Sub)
+   # Milestone 1: Data Ingestion System (Cloud Pub/Sub)
 ## Repository: 
 [https://github.com/GeorgeDaoud3/SOFE4630U-MS1](https://github.com/GeorgeDaoud3/SOFE4630U-MS1)
 ## Objectives
@@ -145,11 +145,15 @@ The subsection will create a consumer that will create a subscriber to consume m
 <img src="images/smartMeter.jpg" alt="smartMeter" width="650">  
 
 1.	Copy the files from **v2** folder from the GitHub repository.
-2.	Edit **cred.json** as you did in the previous section.
-3.	Edit **createTopic.py** to create a topic called **smartMeter** as you did in the previous section.
-4.	Edit **consumer.py** to create a consumer that reads from **smartMeter** topic as you did in the previous section. Leave the file running such that you can consume the messages once they produced to the topic. The only difference in the message get decoded by the **json.loads()** function as the producer will send a JSON object instead of string.
-5.	Edit **smartMeter.py** to create to produce smart meter measurements generated randomly. Update the topic name as before to **smartMeter**. The code looks like the same except the lines shown in the following figure. Lines from 12 to 18 have values that will be used to generate messages. Lines 33 till 54 are within a loop that will randomly generate messages that will be sent to the Kafka topic.  
-<img src="images/e1.jpg" alt="e1" width="750">  
+2.	Create a new topic and name it **smartMeter**
+3. Copy the JSon file containing the key for the account service to the **v2** folder
+4.	Set the project ID in the **consumer.py** script as you did before. The script creates a consumer that reads from **smartMeter** topic. Execute the script and leave it running such that you can consume the messages once they produced to the topic. The only difference in the message get decoded (deserialized) by the **json.loads()** function as the producer will send them as a dictionary (JSON-like format) instead of string.
+5.	Set the project ID in the **smartMeter.py** script. It will simulate a smart meter that will randomally generate measurements and publish them to the topic. The code looks like the same except the lines shown in the following figure.
+   * Lines 12-18: defines the random distribution parameters that will be used to generate messages.
+   * Lines 33-54: iteratively generate random measurements and publish them to the topic.
+      <img src="images/smartMeter_2.jpg" alt="e1" width="750"> 
+6. run the **smartMeter.py** script and notice both the consumer and the producer.
+ 
 
 ## Discussion
 * What is EDA? What are its advantages and disadvantages?
