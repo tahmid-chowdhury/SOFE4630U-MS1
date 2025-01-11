@@ -1,13 +1,16 @@
-from confluent_kafka import Producer, KafkaError
+from google.cloud import pubsub_v1      # pip install google-cloud-pubsub  ##to install
+import glob                             # for searching for json file 
 import json
-import time
-import random 
-import numpy as np
+import os 
 
-# Read arguments and configurations and initialize
-producer_conf = json.load(open('cred.json'))
-producer = Producer(producer_conf)
-topic= "<topicname>"
+# Search the current directory for the JSON file (including the service account key) 
+# to set the GOOGLE_APPLICATION_CREDENTIALS environment variable.
+files=glob.glob("*.json")
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=files[0];
+
+# Set the project_id with your project ID
+project_id="";
+topic_name = "smartMeter";   # change it for your topic name if needed
 
 #device normal distributions profile used to generate random data
 DEVICE_PROFILES = {
@@ -17,48 +20,42 @@ DEVICE_PROFILES = {
 }
 profileNames=["boston","denver","losang"];
 
-# Optional per-message on_delivery handler (triggered by poll() or flush())
-# when a message has been successfully delivered or
-# permanently failed delivery (after retries).
-def acked(err, msg):
-    if err is not None:
-        print("Failed to deliver message: {}".format(err))
-    else:
-        print("Produced record to topic {} partition [{}] @ offset {}"
-              .format(msg.topic(), msg.partition(), msg.offset()))
+# create a publisher and get the topic path for the publisher
+publisher = pubsub_v1.PublisherClient()
+topic_path = publisher.topic_path(project_id, topic_name)
+print(f"Published messages with ordering keys to {topic_path}.")
 
-record_key=0
 while(True):
+    profile_name = profileNames[random.randint(0, 2)];
+    profile = DEVICE_PROFILES[profile_name]
+    # get random values within a normal distribution of the value
+    temp = max(0, np.random.normal(profile['temp'][0], profile['temp'][1]))
+    humd = max(0, min(np.random.normal(profile['humd'][0], profile['humd'][1]), 100))
+    pres = max(0, np.random.normal(profile['pres'][0], profile['pres'][1]))
+    
+    # create dictionary
+    msg={"time": time.time(), "profile_name": profile_name, "temperature": temp,"humidity": humd, "pressure":pres};
+    
+    #randomly eliminate some measurements
+    for i in range(3):
+        if(random.randrange(0,10)<1):
+            choice=random.randrange(0,3)
+            if(choice==0):
+                msg['temperature']=None;
+            elif (choice==1):
+                msg['humidity']=None;
+            else:
+                msg['pressure']=None;
+    
+    record_value=json.dumps(msg);
     try:    
-        profile_name = profileNames[random.randint(0, 2)];
-        profile = DEVICE_PROFILES[profile_name]
-        # get random values within a normal distribution of the value
-        temp = max(0, np.random.normal(profile['temp'][0], profile['temp'][1]))
-        humd = max(0, min(np.random.normal(profile['humd'][0], profile['humd'][1]), 100))
-        pres = max(0, np.random.normal(profile['pres'][0], profile['pres'][1]))
+        future = publisher.publish(topic_path, record_value);
         
-        # create dictionary
-        msg={"time": time.time(), "profile_name": profile_name, "temperature": temp,"humidity": humd, "pressure":pres};
+        #ensure that the publishing has been completed successfully
+        future.result()
         
-        #randomly eliminate some measurements
-        for i in range(3):
-            if(random.randrange(0,10)<1):
-                choice=random.randrange(0,3)
-                if(choice==0):
-                    msg['temperature']=None;
-                elif (choice==1):
-                    msg['humidity']=None;
-                else:
-                    msg['pressure']=None;
-        record_key=record_key+1;
-        record_value=json.dumps(msg);
-
-        producer.produce(topic, key=str(record_key), value=record_value, on_delivery=acked)
-        # p.poll() serves delivery reports (on_delivery) from previous produce() calls.
-        producer.poll(0)
-        time.sleep(.5)
-    except KeyboardInterrupt:
-        break;
-producer.flush()
-
-print("{} messages were produced to topic {}!".format(delivered_records, topic))
+        print("The messages {} has been published successfully".format(msg))
+    except: 
+        print("Failed to publish the message")
+        
+      
