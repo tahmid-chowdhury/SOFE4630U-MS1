@@ -156,10 +156,10 @@ The subsection will create a consumer that will create a subscriber to consume m
 ## Discussion
 * What is EDA? What are its advantages and disadvantages?
 * Cloud Pub/Sub has two types of subscriptions: push and pull. Describe them, showing the strengths and weaknesses of each based on potential applications.
-* When publishing a message into a topic, an ordering key can be specified. With the aid of examples, describe the role and benefits of ordering keys.
+* When publishing a message into a topic, an ordering key can be specified. Using examples, describe the role and benefits of ordering keys.
 
 ## Design
-Download the stitching_metadata.csv file from Canvas. write two python scripts to produce and consume the records read from the CSV file. 
+Download the stitching_metadata.csv file from Canvas. Write two Python scripts to produce and consume the records read from the CSV file. 
 
 The producer should:
 * read the CSV file.
@@ -169,8 +169,8 @@ The producer should:
     * Publish the message into a specific topic
 
 The consumer should:
-* receive message from the topic.
-* deserialize them to dictionary.
+* receive messages from the topic.
+* deserialize them to a dictionary.
 * print their values.
 
 ## Deliverables
