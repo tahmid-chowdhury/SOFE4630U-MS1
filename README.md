@@ -155,13 +155,26 @@ The subsection will create a consumer that will create a subscriber to consume m
 
 ## Discussion
 * What is EDA? What are its advantages and disadvantages?
-* In Kafka, what’s meant by cluster, broker, topic, replica, partition, zookeeper, controller, leader, consumer, producer, and consumer group?
+* Cloud Pub/Sub has two types of subscriptions: push and pull. Describe them, showing the strengths and weaknesses of each based on potential applications.
+* When publishing a message into a topic, an ordering key can be specified. With the aid of examples, describe the role and benefits of ordering keys.
 
 ## Design
-Google has an alternative ingestion tool called **Google Pub/sub**. Configure it and create a topic using Cloud interface. write a python code for a Google Pub/sub consumer and producer. The producer and the consumer should act as the smart meter shown before. **Note:** they needed a different library than that used for confluent kafka.
+Download the stitching_metadata.csv file from Canvas. write two python scripts to produce and consume the records read from the CSV file. 
+
+The producer should:
+* read the CSV file.
+* iterate over the records of the CSV file.
+    * convert each record (row from the CSV file) into a dictionary.
+    * serialize the dictionary into a message
+    * Publish the message into a specific topic
+
+The consumer should:
+* receive message from the topic.
+* deserialize them to dictionary.
+* print their values.
 
 ## Deliverables
 1. A report that includes the discussion and the design parts. 
-2. An audible video of about 3 minutes showing the smart meter using confluent cloud Kafka. 
-3.  Another  audible  video  of about 5  minutes showing  the  design part. 
+2. An audible video of about 3 minutes showing the smart meter application. 
+3. Another audible video of about 5 minutes showing  the  design part. 
 
