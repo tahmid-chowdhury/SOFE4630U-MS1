@@ -149,8 +149,8 @@ The subsection will create a consumer that will create a subscriber to consume m
 3. Copy the JSON file containing the key for the account service to the **v2** folder.
 4.	Set the project ID in the **consumer.py** script as you did before. The script creates a consumer that reads from the **smartMeter** topic. Execute the script and leave it running so that you can consume the messages once they produced for the topic. The only difference is that the message get decoded (deserialized) by the **json.loads()** function as the producer will send them as a dictionary (JSON-like format) instead of string.
 5.	Set the project ID in the **smartMeter.py** script. It will simulate a smart meter by randomly generating measurements and publishing them into the topic.  The code looks like the producer used before, except
-   * Lines 24-29: define the random distribution parameters used to generate messages.
-   * Lines 32-61: iteratively generate random measurements, serialize them, and publish them to the topic.
+    * Lines 24-29: define the random distribution parameters used to generate messages.
+    * Lines 32-61: iteratively generate random measurements, serialize them, and publish them to the topic.
 6. run the **smartMeter.py** script and notice both the consumer and the producer.
 
 ## Discussion
