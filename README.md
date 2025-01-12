@@ -1,181 +1,180 @@
-# Milestone 1: Data Ingestion System (Apache Kafka)
+   # Milestone 1: Data Ingestion System (Cloud Pub/Sub)
 ## Repository: 
 [https://github.com/GeorgeDaoud3/SOFE4630U-MS1](https://github.com/GeorgeDaoud3/SOFE4630U-MS1)
 ## Objectives
-1.	Understand the role of Data Ingestion System in Event Driven Architecture.
-2.	Get familiar with Kafka and its terminologies. 
-3.	Be able to create topics, producers, and consumers via GUI and code.
-4.	Get familiar with Google Pub/sub.
+1.	Understand the role of the Data Ingestion System in Event Driven Architecture.
+2.	Get familiar with Google Pub/Sub and its terminologies.
+3.	Be able to create topics, producers, and consumers via GUI.
+4.	Create producers and consumers with a Python script.
 
-## What’s Kafka?
+
+## What’s Cloud Pub/Sub?
 1.	Watch the following video about [Event Driven Architecture (EDA)](https://www.youtube.com/watch?v=o2HJCGcYwoU)
-2.	The core component of an EDA is the Data Ingestion System also known as Publisher/subscriber (pub/sup). 
-Kafka is one of the most frequent used pub/sub. Watch the following video to get a good understanding of [Kafka and its terminologies](https://www.youtube.com/watch?v=Ch5VhJzaoaI).
-3.	You can set up Kafka cluster on a set of locally connected computers, 
-deploy it as a set of docker images over Kubernetes cluster, or use already exists cloud-native service. 
-In this section, we will use Kafka confluent Cloud as a cloud-native service. It’s a tool that can integrate with any cloud platform 
-like Google Cloud Platform (GCP) to create a Kafka cluster. Thus, we will start by creating a GCP account.  
+2.	The core component of an EDA is the Data Ingestion System, also known as Publisher/Subscriber (Pub/Sup). Kafka is one of the most frequently used pub/sub. Google Cloud Platform (GCP) has a data ingestion service called Cloud Pub/Sub. Watch the following video to understand [the Cloud Pub/Sub and its terminologies](https://www.youtube.com/watch?v=MjEam95VLiI).
+
+You will start by creating a GCP account. Then, you will learn how to configure topics in a Cloud Pub/Sub and Publish and consume data through the topics.
 
 ## Creating GCP account
-1.	It’s recommended to create a new Gmail account, but you can use an already existing account.
-2.	Go to [GCP official site](https://cloud.google.com/gcp). Be sure that you are using the correct account. Then, click on **Get Started for free** button  
-
-![a1](images/a1.jpg)  
-
-3.	Fill the account information and accept the terms of services  
-
-![a2](images/a2.jpg)  
-
-4.	In the next step, you will fill in your personal information and a credit card information. That information is to ensure that you are a real person. This will create a free account for 90 days and give you 300+ $ free credits. **No charges are made unless you upgrade to a paid Cloud Billing account**. Please read [the GCP billing verification](https://cloud.google.com/free/docs/free-cloud-features#billing_verification) for more information.  
-
-![a3](images/a3.jpg)  
-
-5.	Fill in the final survey. Then, click **Done**. You can safely skip any given offers.  
-
-![a4](images/a4.jpg)  
-
-6.	Get yourself familiar with
-* Dashboard: allows you to search and select available cloud services
-* project(s): a project usually named **My First Project** will be created but we can create, edit, and delete projects.
-* The console: By clicking the console icon, the console will be opened to you. The console is a Linux terminal that can be used to configure the cloud. Any commands that affect the console local OS will be temporary and lost whenever the session is closed while any change made to any cloud services will be permanent.  
- <img src="images/a5.jpg" alt="a5" width="750">
-
-The console will be opened at the bottom of the page as shown in the following figure and from it we can exchange files and folders with your local computer by downloading or uploading them. You can also click **Open Editor** button to open the editor.  
-<img src="images/a6.jpg" alt="a6" width="750">
-
-* Editor: It’s a text editor that allows you to edit plain text file as shown in the following figure. You can switch back to the console by clicking **Open Terminal** button  
-
-<img src="images/a7.jpg" alt="a7" width="750">
-
-# Create a Confluent Kafka Cluster
-1.	Open [the Confluent Cloud-native Service for Apache Kafka](https://www.confluent.io/confluent-cloud/). Then click **TRY FREE**.  
-
-<img src="images/b1.jpg" alt="b1" width="750">  
-
-2.	Sign in with the same Google account  
-
-<img src="images/b2.jpg" alt="b2" width="750">  
-
-3.	Enter your personal Information. Then, click **Submit**  
-
-<img src="images/b3.jpg" alt="b3" width="350">  
-
-4.	Finish the following survey and click **Continue**.  
-5.	To create your first Kafka cluster, choose the cluster name (e.g. **sofe4630u**) and Google Cloud as the service provider, Toronto as a **Region**. Then press **Continue**.   
-
-<img src="images/b4_v2.jpg" alt="b4" width="470">  
-
-6.	Don’t enter the payment info.   
-
-<img src="images/b5_v2.jpg" alt="b5" width="410">  
-
-
-## Create a topic, producer and consumer using the GUI
-1.	Go to [the Confluent Kafka home page](https://confluent.cloud/home).
-2.	Click **Environments**.  
-3.	Select the default environment.  
-
-   <img src="images/c1_v2.jpg" alt="c1" width="380">  
-
-4. Keep the current free  configuration
-
-   <img src="images/c2_v2.jpg" alt="c2" width="650">
+1. Creating a new Gmail account is recommended, but you can use an existing one if it still allows you a free trial.
+2. Go to the [GCP official site](https://cloud.google.com/gcp). Be sure that you are using the correct account. Then, click on **Get Started for Free** button
    
-6.	Select the cluster according to its name.  
+   <img src="images/a1.jpg" alt="Get Started with GCP for Free" width="540">
+4. Fill the account information and accept the terms of services.
+   
+   <img src="images/a2.jpg" alt="Fill the account information" width="300">
+5. In the next step, you will fill in your personal information and a credit card information. That information is to ensure that you are a real person. This will create a free account for 90 days and give you 300+ $ free credits. **No charges are made unless you upgrade to a paid Cloud Billing account**. Please read [the GCP billing verification](https://cloud.google.com/free/docs/free-cloud-features#billing_verification) for more information.
+   
+   <img src="images/a3.jpg" alt="fill in your personal information" width="550">
+6. Fill in the final survey. Then, click **Done**. You can safely skip any given offers.
+   
+   ![a4](images/a4.jpg)  
+7. Get yourself familiar with
+* Dashboard: allows you to search and select available cloud services
+* project(s): a project usually named **My First Project** will be created, However, you can create, edit, and delete projects.
+* The console: By clicking the console icon, the console will be opened to you. The console is a Linux terminal that can be used to configure the cloud. Any commands affecting the console's local OS will be temporary and lost whenever the session is closed, while any change made to cloud services will be permanent.
+  
+   <img src="images/a5.jpg" alt="a5" width="750">
+   The console will be opened at the bottom of the page as shown in the following figure and from it we can exchange files and folders with your local computer by downloading or uploading them. You can also click **Open Editor** button to open a text editor.
+    
+   <img src="images/a6.jpg" alt="a6" width="750">
+* Editor: It’s a text editor that allows you to edit plain text file as shown in the following figure. You can switch back to the console by clicking **Open Terminal** button.
+  
+   <img src="images/a7.jpg" alt="a7" width="750">
+# Cloud Pub/Sub
 
-   <img src="images/c2.jpg" alt="c3" width="750">  
+In this section, you will learn to create topics in Pub/Sun. Also, you will write and run Python Script to publish into and consume messages from the topic.
 
-6.	Create a topic by selecting **topics**. Then click on **Create topic**.  
+## 1. Create a Topic
+1.	Search for **Pub/Sub**.  
 
-   <img src="images/c3.jpg" alt="c4" width="350">  
+      <img src="images/pubsub_1.jpg" alt="Search for Pub/Sub" width="965">  
+2.	Click the **CREATE TOPIC** button.
 
-7.	Choose the topic name as **testTopic** and you can leave the number of partitions to the default value of 6. Also, by clicking on **Show advanced settings**. Thus, you can change the **Cleanup policy**, **Retention time**, **Retention size**, and **maximum message size**. For now, you clean leave them with the default values. Finally, click **create with defaults** to create the topic.  
+      <img src="images/pubsub_2.jpg" alt="Click 'CREAYE TOPIC' button" width="854">  
+3.	Set the topic ID to **testTopic**. Leave the default options. Then, click **CREATE**. **Note**: A default subscription will be automatically created.
 
-   <img src="images/c4.jpg" alt="c5" width="750">  
+      <img src="images/pubsub_3.jpg" alt="create a topic under the name testTopic" width="560">  
+4.	The topic will be created. The default subscription is created under the name **testTopic-sub**. 
+   
+      <img src="images/pubsub_4.jpg" alt="The default subscription, testTopic-sub" width="830">  
+## 2. Create an Account Service Key
 
-8. the values and/or the keys of the messages can be configured to follow a certain schema. To make it simpler in this tutorial, no schemas will be created for the topic. 
+A service account is a special account typically used by an application. This subsection will create a service account with the Pub/Sub Publisher and Subscriber roles. A key for this service account is needed to grant access to the Pub/Sub service from your machine.
 
-   <img src="images/c4a_v2.jpg" alt="c5" width="650">  
+1.	Search for **Service accounts**.
+   
+      <img src="images/pubsub_5.jpg" alt="search for Service accounts" width="955">  
+2.	Click **CREATE SERVICE ACCOUNT** button.
 
-9.	In the **testTopic** page, create **messages** tap which allows you to produce and consume messages.  
+      <img src="images/pubsub_6.jpg" alt="click CREATE SERVICE ACCOUNT button" width="830">  
+3. Set the service account name to **pubsub-system**. Then, click the **CREATE AND CONTINUE** button.
+   
+      <img src="images/pubsub_7.jpg" alt="Name the service account pubsub-system" width="560">  
+4. Add two roles to the service account, **Pub/Sub Publisher** and **Pub/Sub Subscriber**
 
-   <img src="images/c5_v2.jpg" alt="c6" width="1240">  
+      <img src="images/pubsub_8.jpg" alt="Name the service account pubsub-system" width="375">    
+5.	Don't grant users’ access. Leave the textboxes blank and click Done.
 
-10.	Click on **Actions** and then choose **Produce new message** as shown in the previous figure. A default value/key message will be generated for you. 
-The value is in a JSON format, but we can change it to a plain string. The key also is a number, but it can also be a string.  
-Change the **value** to **“Hello Kafka!!”** and the **key** to **1**. Then click **Produce**.  
+      <img src="images/pubsub_9.jpg" alt="Don't grant users access" width="380">  
+6.	The service account will be created. Click on it to create and download a key to use the service account.
 
-   <img src="images/c6_v2.jpg" alt="c7" width="575">  
+      <img src="images/pubsub_10.jpg" alt="Don't grant users access" width="1100">  
+7. Go to the **keys** tab, Choose **ADD KEY**, and Select **Create new key**.
 
-11.	It will be automatically consumed in the consumer region. The partition will be determined by hashing the key value.  
+      <img src="images/pubsub_11.jpg" alt="Don't grant users access" width="610">  
+8. Choose **JSON** as the key type. Finally, click the **CREATE** button to create and download the key to your machine.
+  
+## 3. Create a Producer (Publisher) Using a Python Script
 
-   <img src="images/c7_v2.jpg" alt="c8" width="775">  
+In this section, a publisher will be created using a Python script to publish messages through the pre-created topic. This code should run on your local machine, but you can run it on the cloud console, which is not preferable. 
 
-12.	Produce more messages and check them using the consumer. 
+1.	Download the files from the folder **v1** from the GitHub repository to a specific folder on your computer.  
+2.	Copy the JSON file containing the key to the service account obtained in the previous section to the same folder.
+3.	The script containing the producer script is **producer.py**, as shown in the following figure. The publisher produces messages to the **testTopic** topic.
+   
+      <img src="images/producer_1.jpg" alt="The content of producer.py" width="685">   
+4. Let's go through the code:
+      * Lines 1-4: importing the needed libraries
+      * Lines 8-9: search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. The **google.cloud** library will access this environment variable to grant access to the Pub/Sub.
+      * Lines 12-13: define the project and topic names. **Note**: you will set the project name in line 12 before running the script.
+      * Lines 16-18: create a publisher for the topic and set the full topic path.
+      * lines 21-36: a loop that will iterate 100 times to publish messages to the topic
+      * Lines 23-27: read the message and stop the loop for a blank input.
+      * line 29: convert the message to bytes. This is called serialization. It's needed before sending the message to the topic.
+      * Lines 32-33: send the serialized message into the topic.
+      * Line 36: ensure that the publishing has been completed successfully. It will throw an exception if a time-out occurs before receiving an acknowledgment.
 
-## Create a Topic, Producer and Consumer Using Python Code
-1.	To create a Kafka client for either a producer or a consumer using a language of your choice. Click **Cluster overview**. Then, at the **Set up client** area, click **Get started**. 
+5. Get the project ID from the GCP console, as shown in the following figure, and type it in the 12th line. You can change the topic name in line 13 if needed to match the open you have already created.
+   
+      <img src="images/producer_2.jpg" alt="Get the project ID from the GCP console" width="455">  
+6. Install the **google.cloud** library by running the following command in the **Command Prompt** window.
+      ```shell
+      pip install google-cloud-pubsub
+      ```
+7.	Run the **producer.py** script. Enter some strings to be published.
+8.	Check that the messages have been sent to the topic by navigating to the **testTopic-sub** subscription. Select the **MESSAGES** tab and press the **pull** button
 
-   <img src="images/d1_v2.jpg" alt="d1" width="1200">  
+      <img src="images/producer_3.jpg" alt="Get the project ID from the GCP console" width="810">  
 
-2. Click **Set up a new client** to get a template of a given language. Then, choose **Python**  
+## 4. Create a Consumer (Subscriber) Using a Python Script
 
-   <img src="images/d1a_v2.jpg" alt="d1" width="1050">  
+The subsection will create a consumer that will create a subscriber to consume messages from the **testTopic** topic. The publisher created in the previous subsection will be used to produce messages that will be received by the consumer, as shown in the following figure.
 
-3.The first step is to get an API key for a credential that enables you to connect to the Kafka cluster. Start by clicking **Cluster API key**. Then, click **Create Kafka Cluster API key**.  
+<img src="images/consumer_1.jpg" alt="Get the project ID from the GCP console" width="540">  
 
-   <img src="images/d2_v2.jpg" alt="d2" width="950">  
-
-3.	**API key** and **API secret** will be generated for you. click **Download and continue** to save them locally in your computer. The downloaded file will contain the **Bootstrap server**as well .  
-
-   <img src="images/d3_v2.jpg" alt="d3" width="524">  
-
-4. The following steps choose the required libraries, snippets of python code, and some tutorials. Fell free to go through them. Then click **View Clients**.
-
-5.	On your computer, install the python library  
-``` python
-pip install confluent-kafka confluent-kafka configparser
-```  
-6.	Download the files from folder **v1** from the GitHub repository to a certain folder in your computer.  
-7.	Edit the cred.json and replace <**Bootstrap servers**>, <**CLUSTER_API_KEY**>, and  <**CLUSTER_API_SECRET**> by the values of the **Bootstrap server**, **API key**, and **API secret** you got in step 4 in this section. Save the file to be used as a credential for the other python scripts.  
-
-<img src="images/d4.jpg" alt="d4" width="350">     
-
-8.	**createTopic.py** is the script used to create a topic. Edit the file and change the topic name in line 8th from <"**topicname**"> to "**testTopic2**". You can change the default values of the number of partitions and the replication factor at lines 9 and 10. The credential is read from the **cred.json** file according to the python statement in line 7. The **cred.json** and **createTopic.py** should be in the same folder. In line 12, an admin client is created that has the privileged to create topics. The statement in lines 14 to 16 creates an array of new topics that contains only a single topic. The array is passed to a createTopics function to create the topics. The loop starting from line 18 goes through the results of createTopics and prints a summary of the creation results.  
-
-<img src="images/d5.jpg" alt="d5" width="750">  
-
-Save the file and run it, the output should look like  
-
-<img src="images/d6.jpg" alt="d6" width="200">  
-
-9.	**producer.py** is a python script that produces messages to a topic. Following the same technique change the topic name in line 8 to **“testTopic2”**. The second marked box in the following figure is a call back function that prints the output of each produce function that sends a message to the Kafka. The code in the third rectangle reads two strings and an integer that represents the key, value and the partition number from the user. Entering any integer less than -1 will stop the loop. The fourth box sends the message via produce function and invokes the call back function using the poll function. The last box flushes the producer internal buffer to ensure that all messages are already sent before ending the program. **Note:** a partition of value of -1 or when it's not included in the produce function, will make kafka decides automatically the paratition number accordinf to a built-in hashing function.  
-
-<img src="images/d7.jpg" alt="d7" width="750">  
-
-10.	The final script is **consumer.py**. As usual, change the topic name in line 6 to “testTopic2”. The group id is given in the 11th line. Consumers of the same group id will cooperate to read messages from the topic. The group id can be any string. The third rectangle marked in the following figure creates a consumer and subscribes it to the topic. Note, the consumer can subscribe to a set of topics. The poll function at the 23rd line reads messages from the topic. The fifth rectangle marks the code that prints the status and output of the consume function. The last box will end the consumer once **Ctrl-C** is pressed by the user that will trigger the **KeyboardInterrupt**.  
-
-<img src="images/d8.jpg" alt="d8" width="500">  
-
-## Simulating a Real Meter.
+1. The folder used in the previous subsection contains another Python script file, **consumer.py**.
+   
+      <img src="images/consumer_2.jpg" alt="Get the project ID from the GCP console" width="620">  
+2. Let's go through the code:
+      * Lines 1-4: importing the needed libraries
+      * Lines 8-9: search the current directory for JSON files and set the first file found to the environment variable **GOOGLE_APPLICATION_CREDENTIALS**. The **google.cloud** library will access this environment variable to grant access to the Pub/Sub.
+      * Lines 12-15: define the project and topic names as well as the subscription ID. **Note**: you will set the project name in line 12 before running the script.
+      * Lines 17-19: create a subscriber from the topic and set the full topic path.
+      * lines 33-40: subscribe to the topic and set a callback function to be called automatically for each message received. 
+      * Lines 24-31: the callback function will automatically be called for any received message.
+      * line 26: convert the message from bytes to string, the format of the publisher's messages. This is called deserialization.
+      * Lines 31: acknowledge the Pub/Sub that the message has been received and processed.
+3.	Type the project ID into the GCP console in the 12th line. You can change the topic name and the subscription ID in lines 13 and 14 if needed to match the open you have already created.
+4.	The JSON file containing the key to the service account already exists in the folder during the previous subsection. Thus, it will also be accessed by the consumer because both the consumer and the producer are in the same folder.
+5. Run the **producer.py** script.
+6. Run the **consumer.py** script.
+7. Enter messages to be published by the producer and observe them received by the consumer.
+   
+## 5. Simulating a Real Meter. 
 
 <img src="images/smartMeter.jpg" alt="smartMeter" width="650">  
 
-1.	Copy the files from **v2** folder from the GitHub repository.
-2.	Edit **cred.json** as you did in the previous section.
-3.	Edit **createTopic.py** to create a topic called **smartMeter** as you did in the previous section.
-4.	Edit **consumer.py** to create a consumer that reads from **smartMeter** topic as you did in the previous section. Leave the file running such that you can consume the messages once they produced to the topic. The only difference in the message get decoded by the **json.loads()** function as the producer will send a JSON object instead of string.
-5.	Edit **smartMeter.py** to create to produce smart meter measurements generated randomly. Update the topic name as before to **smartMeter**. The code looks like the same except the lines shown in the following figure. Lines from 12 to 18 have values that will be used to generate messages. Lines 33 till 54 are within a loop that will randomly generate messages that will be sent to the Kafka topic.  
-<img src="images/e1.jpg" alt="e1" width="750">  
+1.	Copy the files from the **v2** folder from the GitHub repository.
+2.	Create a new topic and name it **smartMeter**
+3. Copy the JSON file containing the key for the account service to the **v2** folder.
+4.	Set the project ID in the **consumer.py** script as you did before. The script creates a consumer that reads from the **smartMeter** topic. Execute the script and leave it running so that you can consume the messages once they produced for the topic. The only difference is that the message get decoded (deserialized) by the **json.loads()** function as the producer will send them as a dictionary (JSON-like format) instead of string.
+5.	Set the project ID in the **smartMeter.py** script. It will simulate a smart meter by randomly generating measurements and publishing them into the topic.  The code looks like the producer used before, except
+    * Lines 24-29: define the random distribution parameters used to generate messages.
+    * Lines 32-61: iteratively generate random measurements, serialize them, and publish them to the topic.
+6. run the **smartMeter.py** script and notice both the consumer and the producer.
 
 ## Discussion
 * What is EDA? What are its advantages and disadvantages?
-* In Kafka, what’s meant by cluster, broker, topic, replica, partition, zookeeper, controller, leader, consumer, producer, and consumer group?
+* Cloud Pub/Sub has two types of subscriptions: push and pull. Describe them, showing the strengths and weaknesses of each based on potential applications.
+* When publishing a message into a topic, an ordering key can be specified. Using examples, describe the role and benefits of ordering keys.
 
 ## Design
-Google has an alternative ingestion tool called **Google Pub/sub**. Configure it and create a topic using Cloud interface. write a python code for a Google Pub/sub consumer and producer. The producer and the consumer should act as the smart meter shown before. **Note:** they needed a different library than that used for confluent kafka.
+Download the stitching_metadata.csv file from Canvas. Write two Python scripts to produce and consume the records read from the CSV file. 
+
+The producer should:
+* read the CSV file.
+* iterate over the records of the CSV file.
+    * convert each record (row from the CSV file) into a dictionary.
+    * serialize the dictionary into a message
+    * Publish the message into a specific topic
+
+The consumer should:
+* receive messages from the topic.
+* deserialize them to a dictionary.
+* print their values.
 
 ## Deliverables
 1. A report that includes the discussion and the design parts. 
-2. An audible video of about 3 minutes showing the smart meter using confluent cloud Kafka. 
-3.  Another  audible  video  of about 5  minutes showing  the  design part. 
+2. An audible video of about 3 minutes showing the smart meter application. 
+3. Another audible video of about 5 minutes showing  the  design part. 
+

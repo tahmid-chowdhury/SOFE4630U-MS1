@@ -1,36 +1,37 @@
-from confluent_kafka import Producer, KafkaError
+from google.cloud import pubsub_v1      # pip install google-cloud-pubsub  ##to install
+import glob                             # for searching for json file 
 import json
-import random 
+import os 
 
-# Read arguments and configurations and initialize
-producer_conf = json.load(open('cred.json'))
-producer = Producer(producer_conf)
-topic= "<topicname>"
+# Search the current directory for the JSON file (including the service account key) 
+# to set the GOOGLE_APPLICATION_CREDENTIALS environment variable.
+files=glob.glob("*.json")
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=files[0];
 
-# Optional per-message on_delivery handler (triggered by poll() or flush())
-# when a message has been successfully delivered or
-# permanently failed delivery (after retries).
-def acked(err, msg):
-    if err is not None:
-        print("Failed to deliver message: {}".format(err))
-    else:
-        print("Produced record to topic {} partition [{}] @ offset {}"
-              .format(msg.topic(), msg.partition(), msg.offset()))
+# Set the project_id with your project ID
+project_id="";
+topic_name = "testTopic";   # change it for your topic name if needed
 
+# create a publisher and get the topic path for the publisher
+publisher = pubsub_v1.PublisherClient()
+topic_path = publisher.topic_path(project_id, topic_name)
+print(f"Published messages with ordering keys to {topic_path}.")
+
+#iterate for 100 times 
 for n in range(100):
-    print('Enter a key (String):',end='')
-    record_key = input()
+    # get the value from the user
     print('Enter a value (String):',end='')
-    record_value = input()
-    print('Enter a partition:',end='')
-    partition = int(input())
-    
-    if(partition<-1):
+    message = input()
+    # stop if empty value is entered
+    if message=='':
         break;
-        
-    print("Producing record: {}\t{}".format(record_key, record_value))
-    producer.produce(topic, key=record_key, value=record_value,partition=partition, on_delivery=acked)
-    # p.poll() serves delivery reports (on_delivery) from previous produce() calls.
-    producer.poll(0)
-
-producer.flush()
+    # convert the string to bytes (serialization)
+    message=str(message).encode('utf-8')
+    
+    # send the value
+    print("Producing a record: {}".format(message))    
+    future = publisher.publish(topic_path, message);
+    
+    #ensure that the publishing has been completed successfully
+    future.result()
+ 
