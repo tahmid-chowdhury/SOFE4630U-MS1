@@ -118,11 +118,11 @@ In this section, a publisher will be created using a Python script to publish me
 
 ## 4. Create a Consumer (Subscriber) Using a Python Script
 
-The subsection will create a consumer that will create a subscriber to consume messages from the **testTopic** topic. The publisher created in the previous subsection will be used to produce messages that will be received by the consumer as shown in the following figure.
+The subsection will create a consumer that will create a subscriber to consume messages from the **testTopic** topic. The publisher created in the previous subsection will be used to produce messages that will be received by the consumer, as shown in the following figure.
 
 <img src="images/consumer_1.jpg" alt="Get the project ID from the GCP console" width="540">  
 
-1. The same folder used in the previous subsection contains another Python script file, **consumer.py**.
+1. The folder used in the previous subsection contains another Python script file, **consumer.py**.
    
       <img src="images/consumer_2.jpg" alt="Get the project ID from the GCP console" width="620">  
 2. Let's go through the code:
@@ -131,11 +131,11 @@ The subsection will create a consumer that will create a subscriber to consume m
       * Lines 12-15: define the project and topic names as well as the subscription ID. **Note**: you will set the project name in line 12 before running the script.
       * Lines 17-19: create a subscriber from the topic and set the full topic path.
       * lines 33-40: subscribe to the topic and set a callback function to be called automatically for each message received. 
-      * Lines 24-31: The callback function that will be called automatically for any received message.
-      * line 26: convert the message from bytes to stringwhich is the format of the messages sent by the publisher. This is called deserialization.
-      * Lines 31: acknowledge The Pub/Sub that the message have been recieved and processed.
-3. Get the project ID from the GCP console and type it in the 12th line. You can change the topic name and the subscription ID in lines 13 and 14 if needed to match the open you have already created.
-4. The JSON file containing the key to the service account is already exist in the folder during the previous subsection. Thus, it will be accessed by the consumer as well because both the consumer and the producer are in the same folder.
+      * Lines 24-31: the callback function will automatically be called for any received message.
+      * line 26: convert the message from bytes to string, the format of the publisher's messages. This is called deserialization.
+      * Lines 31: acknowledge the Pub/Sub that the message has been received and processed.
+3.	Type the project ID into the GCP console in the 12th line. You can change the topic name and the subscription ID in lines 13 and 14 if needed to match the open you have already created.
+4.	The JSON file containing the key to the service account already exists in the folder during the previous subsection. Thus, it will also be accessed by the consumer because both the consumer and the producer are in the same folder.
 5. Run the **producer.py** script.
 6. Run the **consumer.py** script.
 7. Enter messages to be published by the producer and observe them received by the consumer.
@@ -144,16 +144,14 @@ The subsection will create a consumer that will create a subscriber to consume m
 
 <img src="images/smartMeter.jpg" alt="smartMeter" width="650">  
 
-1.	Copy the files from **v2** folder from the GitHub repository.
+1.	Copy the files from the **v2** folder from the GitHub repository.
 2.	Create a new topic and name it **smartMeter**
-3. Copy the JSon file containing the key for the account service to the **v2** folder. 
-4.	Set the project ID in the **consumer.py** script as you did before. The script creates a consumer that reads from **smartMeter** topic. Execute the script and leave it running such that you can consume the messages once they produced to the topic. The only difference in the message get decoded (deserialized) by the **json.loads()** function as the producer will send them as a dictionary (JSON-like format) instead of string.
-5.	Set the project ID in the **smartMeter.py** script. It will simulate a smart meter that will randomally generate measurements and publish them to the topic. The code looks like the same except the lines shown in the following figure.
-   * Lines 24-29: defines the random distribution parameters that will be used to generate messages.
-   * Lines 32-61: iteratively generate random measurement, serialize it and publish them to the topic.
-      <img src="images/smartMeter_2.jpg" alt="e1" width="750"> 
+3. Copy the JSON file containing the key for the account service to the **v2** folder.
+4.	Set the project ID in the **consumer.py** script as you did before. The script creates a consumer that reads from the **smartMeter** topic. Execute the script and leave it running so that you can consume the messages once they produced for the topic. The only difference is that the message get decoded (deserialized) by the **json.loads()** function as the producer will send them as a dictionary (JSON-like format) instead of string.
+5.	Set the project ID in the **smartMeter.py** script. It will simulate a smart meter by randomly generating measurements and publishing them into the topic.  The code looks like the producer used before, except
+   * Lines 24-29: define the random distribution parameters used to generate messages.
+   * Lines 32-61: iteratively generate random measurements, serialize them, and publish them to the topic.
 6. run the **smartMeter.py** script and notice both the consumer and the producer.
- 
 
 ## Discussion
 * What is EDA? What are its advantages and disadvantages?
