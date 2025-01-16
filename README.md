@@ -1,8 +1,9 @@
-   # Milestone 1: Data Ingestion System (Cloud Pub/Sub)
+# Milestone 1: Data Ingestion System (Cloud Pub/Sub)
+
 ## Repository: 
 https://github.com/zubxxr/SOFE4630U-MS1
 
-# Table of Contents
+## Table of Contents
 - [Objectives](#objectives)
 - [What’s Cloud Pub/Sub?](#whats-cloud-pubsub)
 - [Creating GCP account](#creating-gcp-account)
@@ -176,17 +177,19 @@ The subsection will create a consumer that will create a subscriber to consume m
 ## Design
 Download the Labels.csv file from the Design folder in the repository. Write two Python scripts to produce and consume the records read from the CSV file. Create a new topic and assign it a name that suits the purpose of the CSV file.
 
-The producer should:
-* read the CSV file.
-* iterate over the records of the CSV file.
-    * convert each record (row from the CSV file) into a dictionary.
-    * serialize the dictionary into a message
-    * Publish the message into your topic
+#### The Producer:
 
-The consumer should:
-* receive messages from the topic.
-* deserialize them to a dictionary.
-* print their values.
+1. Read the CSV file.
+2. Iterate over the records in the CSV file:
+   - Convert each record (row from the CSV file) into a dictionary.
+   - Serialize the dictionary into a message.
+   - Publish the message to your topic.
+
+#### The Consumer:
+1. Receive messages from the topic.
+2. Process each message:
+   - Deserialize the message into a dictionary.
+   - Print the values of the dictionary.
 
 ## Deliverables
 1. A report that includes the discussion and the design parts.
