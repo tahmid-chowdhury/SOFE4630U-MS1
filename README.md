@@ -86,7 +86,7 @@ A service account is a special account typically used by an application. This su
   
 ## 3. Create a Producer (Publisher) Using a Python Script
 
-In this section, a publisher will be created using a Python script to publish messages through the pre-created topic. This code should run on your local machine, but you can run it on the cloud console, which is not preferable. 
+In this section, a publisher will be created using a Python script to publish messages through the pre-created topic. This code should run on your local machine, but you can also run it on the cloud console. However, this is not recommended. 
 
 1.	Download the files from the folder **v1** from the GitHub repository to a specific folder on your computer.  
 2.	Copy the JSON file containing the key to the service account obtained in the previous section to the same folder.
