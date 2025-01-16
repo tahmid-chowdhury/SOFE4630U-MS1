@@ -175,7 +175,7 @@ The subsection will create a consumer that will create a subscriber to consume m
 * When publishing a message into a topic, an ordering key can be specified. Using examples, describe the role and benefits of ordering keys.
 
 ## Design
-Download the Labels.csv file from the Design folder in the repository. Write two Python scripts to produce and consume the records read from the CSV file. Create a new topic and assign it a name that suits the purpose of the CSV file.
+Download the Labels.csv file from the Design folder in the repository. Write two Python scripts to produce and consume the records read from the CSV file. Create a new topic and assign it a name that suits the purpose of the tasks below.
 
 #### The Producer:
 
