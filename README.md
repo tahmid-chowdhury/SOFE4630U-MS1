@@ -192,8 +192,9 @@ Download the Labels.csv file from the Design folder in the repository. Write two
    - Print the values of the dictionary.
 
 ## Deliverables
-1. A report that includes the discussion and the design parts.
-2. An audible video of about 3 minutes showing the smart meter application. 
-3. Another audible video of about 5 minutes showing the design part. 
+1. A GitHub link to the scripts used in the Design part.
+2. A report that includes the discussion and the design parts.
+3. An audible video of about 3 minutes showing the smart meter application. 
+4. Another audible video of about 5 minutes showing the design part. 
 
-Put the video links inside your report, and submit the report.
+Put the GitHub link and video links inside your report, and submit the report.
