@@ -1,6 +1,20 @@
    # Milestone 1: Data Ingestion System (Cloud Pub/Sub)
 ## Repository: 
-[https://github.com/GeorgeDaoud3/SOFE4630U-MS1](https://github.com/GeorgeDaoud3/SOFE4630U-MS1)
+https://github.com/zubxxr/SOFE4630U-MS1
+
+# Table of Contents
+- [Objectives](#objectives)
+- [What’s Cloud Pub/Sub?](#whats-cloud-pubsub)
+- [Creating GCP account](#creating-gcp-account)
+- [1. Create a Topic](#1-create-a-topic)
+- [2. Create an Account Service Key](#2-create-an-account-service-key)
+- [3. Create a Producer (Publisher) Using a Python Script](#3-create-a-producer-publisher-using-a-python-script)
+- [4. Create a Consumer (Subscriber) Using a Python Script](#4-create-a-consumer-subscriber-using-a-python-script)
+- [5. Simulating a Real Meter](#5-simulating-a-real-meter)
+- [Discussion](#discussion)
+- [Design](#design)
+- [Deliverables](#deliverables)
+  
 ## Objectives
 1.	Understand the role of the Data Ingestion System in Event Driven Architecture.
 2.	Get familiar with Google Pub/Sub and its terminologies.
@@ -166,7 +180,7 @@ The producer should:
 * iterate over the records of the CSV file.
     * convert each record (row from the CSV file) into a dictionary.
     * serialize the dictionary into a message
-    * Publish the message into a specific topic
+    * Publish the message into your topic
 
 The consumer should:
 * receive messages from the topic.
@@ -174,7 +188,8 @@ The consumer should:
 * print their values.
 
 ## Deliverables
-1. A report that includes the discussion and the design parts. 
+1. A report that includes the discussion and the design parts.
 2. An audible video of about 3 minutes showing the smart meter application. 
 3. Another audible video of about 5 minutes showing the design part. 
 
+Put the video links inside your report, and submit the report.
