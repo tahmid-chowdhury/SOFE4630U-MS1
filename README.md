@@ -6,6 +6,7 @@ https://github.com/zubxxr/SOFE4630U-MS1
 - [Objectives](#objectives)
 - [What’s Cloud Pub/Sub?](#whats-cloud-pubsub)
 - [Creating GCP account](#creating-gcp-account)
+- [Cloud Pub/Sub](#cloud-pubsub)
 - [1. Create a Topic](#1-create-a-topic)
 - [2. Create an Account Service Key](#2-create-an-account-service-key)
 - [3. Create a Producer (Publisher) Using a Python Script](#3-create-a-producer-publisher-using-a-python-script)
