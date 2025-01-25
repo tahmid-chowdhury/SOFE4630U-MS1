@@ -6,12 +6,12 @@ import os
 # Search the current directory for the JSON file (including the service account key) 
 # to set the GOOGLE_APPLICATION_CREDENTIALS environment variable.
 # files=glob.glob("*.json")
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\tahmi\Documents\Cloud Computing\Project Milestone 1\SOFE4630U-MS1\v2\tahmids-project-95921-63961e4b0206.json";
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\tahmi\Documents\Cloud Computing\Project Milestone 1\SOFE4630U-MS1\Design\tahmids-project-95921-63961e4b0206.json";
 
 # Set the project_id with your project ID
 project_id="tahmids-project-95921";
-topic_name = "smartMeter";   # change it for your topic name if needed
-subscription_id = "smartMeter-sub";   # change it for your topic name if needed
+topic_name = "design";   # change it for your topic name if needed
+subscription_id = "design-sub";   # change it for your topic name if needed
 
 # create a subscriber to the subscriber for the project using the subscription_id
 subscriber = pubsub_v1.SubscriberClient()
@@ -22,10 +22,10 @@ print(f"Listening for messages on {subscription_path}..\n")
 
 # A callback function for handling received messages
 def callback(message: pubsub_v1.subscriber.message.Message) -> None:
-    # convert from bytes to dictionary (deserialization)
-    message_data = json.loads(message.data.decode('utf-8'));
-    
-    print("Consumed record with value : {}" .format(message_data))
+    # convert from bytes to string (deserialization)
+    message_data = str(message.data)
+    dictionary = json.loads(message.data.decode('utf-8'))
+    print("Consumed record with values:", dictionary)
    
    # Report To Google Pub/Sub the successful processed of the received messages
     message.ack()
@@ -38,3 +38,4 @@ with subscriber:
         streaming_pull_future.result()
     except KeyboardInterrupt:
         streaming_pull_future.cancel()
+

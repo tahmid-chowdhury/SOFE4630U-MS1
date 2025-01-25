@@ -8,11 +8,11 @@ import time
 
 # Search the current directory for the JSON file (including the service account key) 
 # to set the GOOGLE_APPLICATION_CREDENTIALS environment variable.
-files=glob.glob("*.json")
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=files[0];
+# files=glob.glob("*.json")
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\tahmi\Documents\Cloud Computing\Project Milestone 1\SOFE4630U-MS1\v2\tahmids-project-95921-63961e4b0206.json";
 
 # Set the project_id with your project ID
-project_id="";
+project_id="tahmids-project-95921";
 topic_name = "smartMeter";   # change it for your topic name if needed
 
 # create a publisher and get the topic path for the publisher
